@@ -1,0 +1,239 @@
+\hypertarget{classSetup_1_1MainInterface}{}\section{Référence de la classe Setup.\+Main\+Interface}
+\label{classSetup_1_1MainInterface}\index{Setup.\+Main\+Interface@{Setup.\+Main\+Interface}}
+
+
+Graphe d\textquotesingle{}héritage de Setup.\+Main\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classSetup_1_1MainInterface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Setup.\+Main\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classSetup_1_1MainInterface__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classSetup_1_1MainInterface_af0e5e02f560904a0eccb74c753708bc7}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, parent, kwargs)
+\item 
+def \hyperlink{classSetup_1_1MainInterface_aee0717844e2994e5508650ab68308275}{Init\+\_\+all\+\_\+frame} (self)
+\item 
+def \hyperlink{classSetup_1_1MainInterface_aeed36bab3e2220dbe30b6f008f94a9b3}{poll} (self)
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSetup_1_1MainInterface_a5b5ac00e36d95de14331effa8f720752}{root}
+\item 
+\hyperlink{classSetup_1_1MainInterface_a55aec7e8acf1047b96ff647558736e35}{select}
+\item 
+\hyperlink{classSetup_1_1MainInterface_a4e3c881d6cc46af91313eb44b56e726c}{Frame1}
+\item 
+\hyperlink{classSetup_1_1MainInterface_a5270ea0b93c1e99a752e3a74248d1405}{Frame2}
+\item 
+\hyperlink{classSetup_1_1MainInterface_a13b6acbd96294fcb53a23ec1d6d3f949}{Frame3}
+\item 
+\hyperlink{classSetup_1_1MainInterface_a1c2141a149be0a1bfe9603001e76ce01}{Frame4}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 18 du fichier Setup.\+py.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classSetup_1_1MainInterface_af0e5e02f560904a0eccb74c753708bc7}\label{classSetup_1_1MainInterface_af0e5e02f560904a0eccb74c753708bc7}} 
+\index{Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Setup.\+Main\+Interface.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{parent,  }\item[{}]{kwargs }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 19 du fichier Setup.\+py.
+
+
+\begin{DoxyCode}
+19     \textcolor{keyword}{def }\_\_init\_\_(self, parent, **kwargs):
+20 
+21         self.root = parent
+22         self.root.title(\textcolor{stringliteral}{"Main frame"})
+23         self.root.geometry=(\textcolor{stringliteral}{"320x240"})
+24         Frame.\_\_init\_\_(self, parent, width=320, height=240, **kwargs)
+25         self.pack(fill=BOTH)
+26 
+27         self.select= IntVar()
+28         self.Init\_all\_frame()
+29         \textcolor{comment}{#self.poll()}
+30         thread = threading.Thread(target=self.poll)
+31         thread.daemon= \textcolor{keyword}{True}
+32         thread.start()
+33     
+\end{DoxyCode}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classSetup_1_1MainInterface_aee0717844e2994e5508650ab68308275}\label{classSetup_1_1MainInterface_aee0717844e2994e5508650ab68308275}} 
+\index{Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}!Init\+\_\+all\+\_\+frame@{Init\+\_\+all\+\_\+frame}}
+\index{Init\+\_\+all\+\_\+frame@{Init\+\_\+all\+\_\+frame}!Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{Init\+\_\+all\+\_\+frame()}{Init\_all\_frame()}}
+{\footnotesize\ttfamily def Setup.\+Main\+Interface.\+Init\+\_\+all\+\_\+frame (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 34 du fichier Setup.\+py.
+
+
+\begin{DoxyCode}
+34     \textcolor{keyword}{def }Init\_all\_frame(self):
+35         self.Frame1= Frame(self, width = self.winfo\_width())
+36         self.Frame1.grid(column=0,row=0)
+37         \textcolor{comment}{#self.Frame1.pack(side=TOP, padx=5, pady=5)}
+38 
+39         self.Frame2= Frame(self, width = self.winfo\_width())
+40         \textcolor{comment}{#self.Frame2.pack(side=TOP, padx=5, pady=5)}
+41         self.Frame2.grid(column=0,row=1)
+42         
+43         self.Frame3= Frame(self, width = self.winfo\_width())
+44         \textcolor{comment}{#self.Frame3.pack(side=TOP, padx=5, pady=5)}
+45         self.Frame3.grid(column=0,row=2)
+46         
+47         self.Frame4= Frame(self, width = self.winfo\_width())
+48         \textcolor{comment}{#self.Frame4.pack(side=TOP, padx=5, pady=5)}
+49         self.Frame4.grid(column=0,row=3)
+50         \textcolor{comment}{#self.Frame5= Frame(self)}
+51         \textcolor{comment}{#self.Frame5.pack(side=TOP, padx=5, pady=5)}
+52 
+53         interfaceFrame.Frame\_init\_option(self.Frame1, self.Frame2, self.Frame3)
+54         interfaceFrame.Frame\_select\_com(self.Frame2, \textcolor{stringliteral}{"PTP"})
+55         \textcolor{comment}{#interfaceFrame.Frame\_select\_file(self.Frame3, 1)}
+56         interfaceFrame.Frame\_btn\_execution(self.Frame4)
+57 
+58         \textcolor{comment}{#interfaceFrame.Frame\_resultat(self.Frame5)}
+59 
+\end{DoxyCode}
+\mbox{\Hypertarget{classSetup_1_1MainInterface_aeed36bab3e2220dbe30b6f008f94a9b3}\label{classSetup_1_1MainInterface_aeed36bab3e2220dbe30b6f008f94a9b3}} 
+\index{Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}!poll@{poll}}
+\index{poll@{poll}!Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{poll()}{poll()}}
+{\footnotesize\ttfamily def Setup.\+Main\+Interface.\+poll (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 60 du fichier Setup.\+py.
+
+
+
+Références Setup.\+Main\+Interface.\+poll(), et Setup.\+Main\+Interface.\+root.
+
+
+
+Référencé par Setup.\+Main\+Interface.\+poll().
+
+
+\begin{DoxyCode}
+60     \textcolor{keyword}{def }poll(self):
+61         self.root.after(100,self.poll)
+62 
+63 
+\end{DoxyCode}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classSetup_1_1MainInterface_aeed36bab3e2220dbe30b6f008f94a9b3_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classSetup_1_1MainInterface_aeed36bab3e2220dbe30b6f008f94a9b3_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classSetup_1_1MainInterface_a4e3c881d6cc46af91313eb44b56e726c}\label{classSetup_1_1MainInterface_a4e3c881d6cc46af91313eb44b56e726c}} 
+\index{Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}!Frame1@{Frame1}}
+\index{Frame1@{Frame1}!Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{Frame1}{Frame1}}
+{\footnotesize\ttfamily Setup.\+Main\+Interface.\+Frame1}
+
+
+
+Définition à la ligne 35 du fichier Setup.\+py.
+
+\mbox{\Hypertarget{classSetup_1_1MainInterface_a5270ea0b93c1e99a752e3a74248d1405}\label{classSetup_1_1MainInterface_a5270ea0b93c1e99a752e3a74248d1405}} 
+\index{Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}!Frame2@{Frame2}}
+\index{Frame2@{Frame2}!Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{Frame2}{Frame2}}
+{\footnotesize\ttfamily Setup.\+Main\+Interface.\+Frame2}
+
+
+
+Définition à la ligne 39 du fichier Setup.\+py.
+
+\mbox{\Hypertarget{classSetup_1_1MainInterface_a13b6acbd96294fcb53a23ec1d6d3f949}\label{classSetup_1_1MainInterface_a13b6acbd96294fcb53a23ec1d6d3f949}} 
+\index{Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}!Frame3@{Frame3}}
+\index{Frame3@{Frame3}!Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{Frame3}{Frame3}}
+{\footnotesize\ttfamily Setup.\+Main\+Interface.\+Frame3}
+
+
+
+Définition à la ligne 43 du fichier Setup.\+py.
+
+\mbox{\Hypertarget{classSetup_1_1MainInterface_a1c2141a149be0a1bfe9603001e76ce01}\label{classSetup_1_1MainInterface_a1c2141a149be0a1bfe9603001e76ce01}} 
+\index{Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}!Frame4@{Frame4}}
+\index{Frame4@{Frame4}!Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{Frame4}{Frame4}}
+{\footnotesize\ttfamily Setup.\+Main\+Interface.\+Frame4}
+
+
+
+Définition à la ligne 47 du fichier Setup.\+py.
+
+\mbox{\Hypertarget{classSetup_1_1MainInterface_a5b5ac00e36d95de14331effa8f720752}\label{classSetup_1_1MainInterface_a5b5ac00e36d95de14331effa8f720752}} 
+\index{Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}!root@{root}}
+\index{root@{root}!Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily Setup.\+Main\+Interface.\+root}
+
+
+
+Définition à la ligne 21 du fichier Setup.\+py.
+
+
+
+Référencé par Setup.\+Main\+Interface.\+poll().
+
+\mbox{\Hypertarget{classSetup_1_1MainInterface_a55aec7e8acf1047b96ff647558736e35}\label{classSetup_1_1MainInterface_a55aec7e8acf1047b96ff647558736e35}} 
+\index{Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}!select@{select}}
+\index{select@{select}!Setup\+::\+Main\+Interface@{Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{select}{select}}
+{\footnotesize\ttfamily Setup.\+Main\+Interface.\+select}
+
+
+
+Définition à la ligne 27 du fichier Setup.\+py.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Setup_8py}{Setup.\+py}\end{DoxyCompactItemize}

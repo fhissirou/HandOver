@@ -1,0 +1,10 @@
+CMDFILE_OMC_VERSION:
+OWNER:oam
+CREATIONDATE:07/27/17 17:18:30
+MODIFICATIONDATE:07/27/17 17:18:30
+AUTHORIZEDUSER:
+SUMMARY:
+END_OF_CMDFILE_HEADER
+Display channel state-transceiver: object = (bsc = 17 & btsSiteManager = 0 & bts = 1 & transceiver = 0);
+Display channel state-transceiver: object = (bsc = 17 & btsSiteManager = 0 & bts = 1 & transceiver = 1);
+Display channel state-transceiver: object = (bsc = 17 & btsSiteManager = 0 & bts = 1 & transceiver = 2);

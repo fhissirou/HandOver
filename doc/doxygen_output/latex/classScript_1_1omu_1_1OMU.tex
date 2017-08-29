@@ -1,0 +1,214 @@
+\hypertarget{classScript_1_1omu_1_1OMU}{}\section{Référence de la classe Script.\+omu.\+O\+MU}
+\label{classScript_1_1omu_1_1OMU}\index{Script.\+omu.\+O\+MU@{Script.\+omu.\+O\+MU}}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classScript_1_1omu_1_1OMU_a1be569a13c8e86722862b330c90c4091}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, host, user, password)
+\item 
+def \hyperlink{classScript_1_1omu_1_1OMU_a563cfa14e4947945a078589e9fdde9ed}{reset\+\_\+tmu} (self, tmu)
+\item 
+def \hyperlink{classScript_1_1omu_1_1OMU_a1c92aa9df1f555d88f49669556a7ef09}{get\+\_\+list\+\_\+tmu} (self)
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classScript_1_1omu_1_1OMU_a7ab79fab99cb1987d8826b5a715c61e5}{H\+O\+ST}
+\item 
+\hyperlink{classScript_1_1omu_1_1OMU_a2b281abf15a86f56b9d55b66513010be}{U\+S\+ER}
+\item 
+\hyperlink{classScript_1_1omu_1_1OMU_aa145f703e4bb94ab36c2f897a52488c7}{P\+A\+S\+S\+W\+O\+RD}
+\item 
+\hyperlink{classScript_1_1omu_1_1OMU_a92d77c41b840c87086283e2efed82f59}{T\+E\+L\+N\+ET}
+\item 
+\hyperlink{classScript_1_1omu_1_1OMU_ae52d30b3793b007ea99cef0877d9bcf4}{T\+M\+U\+\_\+reset}
+\item 
+\hyperlink{classScript_1_1omu_1_1OMU_a56dd70ac0ae8683e51629cc22b6dddfc}{List\+\_\+tmu}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 22 du fichier omu.\+py.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classScript_1_1omu_1_1OMU_a1be569a13c8e86722862b330c90c4091}\label{classScript_1_1omu_1_1OMU_a1be569a13c8e86722862b330c90c4091}} 
+\index{Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Script.\+omu.\+O\+M\+U.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{host,  }\item[{}]{user,  }\item[{}]{password }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 24 du fichier omu.\+py.
+
+
+\begin{DoxyCode}
+24     \textcolor{keyword}{def }\_\_init\_\_(self, host, user,password):
+25         self.HOST=host
+26         
+27         self.USER=user
+28         self.PASSWORD=password 
+29         self.TELNET= telnetlib.Telnet(self.HOST)
+30         self.TELNET.read\_until(\textcolor{stringliteral}{"login: "})
+31         \textcolor{comment}{#On recupère le champ correspondant au nom Utilisateur}
+32         self.TELNET.write(self.USER+\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"})
+33 
+34         \textcolor{keywordflow}{if} self.PASSWORD:
+35             \textcolor{comment}{#On verifie que l'OMC est à attend le saisi du mot de passe}
+36             self.TELNET.read\_until(\textcolor{stringliteral}{"Password: "})
+37             \textcolor{comment}{#On envoi le mot passe à l'OMC}
+38             self.TELNET.write(self.PASSWORD+\textcolor{stringliteral}{"\(\backslash\)n"})
+39 
+40 
+41 
+42         \textcolor{comment}{#self.reset\_tmu()}
+\end{DoxyCode}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classScript_1_1omu_1_1OMU_a1c92aa9df1f555d88f49669556a7ef09}\label{classScript_1_1omu_1_1OMU_a1c92aa9df1f555d88f49669556a7ef09}} 
+\index{Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}!get\+\_\+list\+\_\+tmu@{get\+\_\+list\+\_\+tmu}}
+\index{get\+\_\+list\+\_\+tmu@{get\+\_\+list\+\_\+tmu}!Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}}
+\subsubsection{\texorpdfstring{get\+\_\+list\+\_\+tmu()}{get\_list\_tmu()}}
+{\footnotesize\ttfamily def Script.\+omu.\+O\+M\+U.\+get\+\_\+list\+\_\+tmu (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 67 du fichier omu.\+py.
+
+
+
+Références Script.\+omu.\+O\+M\+U.\+T\+E\+L\+N\+ET.
+
+
+\begin{DoxyCode}
+67     \textcolor{keyword}{def }get\_list\_tmu(self):
+68         patterns= \textcolor{stringliteral}{r"tmu\_[\(\backslash\)w\(\backslash\).-]+[0-9]"}
+69 
+70         \textcolor{comment}{#J'envoi la command pour récuperer qui affiche les infos concernant le tmu}
+71         self.TELNET.write(\textcolor{stringliteral}{"ftViCpTable\(\backslash\)n"})
+72         time.sleep(5)
+73         \textcolor{comment}{#Je lis la sortie de la command précedente }
+74         txt= self.TELNET.read\_very\_eager()
+75         print(\textcolor{stringliteral}{"\(\backslash\)n"}*4)
+76         print(txt)
+77         \textcolor{comment}{#filter le contenu de la variable text à l'aide patterns qui me retourne la liste des liste de tmu}
+78         self.List\_tmu= re.findall(patterns, txt)
+79         \textcolor{comment}{#je mélange la liste de façon aléatoire}
+80         random.shuffle(self.List\_tmu, random.random)
+81         print(self.List\_tmu)
+82         \textcolor{comment}{#je retourne la liste}
+83         \textcolor{keywordflow}{return} self.List\_tmu
+84 
+85 
+86 \end{DoxyCode}
+\mbox{\Hypertarget{classScript_1_1omu_1_1OMU_a563cfa14e4947945a078589e9fdde9ed}\label{classScript_1_1omu_1_1OMU_a563cfa14e4947945a078589e9fdde9ed}} 
+\index{Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}!reset\+\_\+tmu@{reset\+\_\+tmu}}
+\index{reset\+\_\+tmu@{reset\+\_\+tmu}!Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}}
+\subsubsection{\texorpdfstring{reset\+\_\+tmu()}{reset\_tmu()}}
+{\footnotesize\ttfamily def Script.\+omu.\+O\+M\+U.\+reset\+\_\+tmu (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{tmu }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 44 du fichier omu.\+py.
+
+
+\begin{DoxyCode}
+44     \textcolor{keyword}{def }reset\_tmu(self, tmu):
+45         self.TMU\_reset= \textcolor{keyword}{False}
+46         \textcolor{comment}{#OMU reconnait les identifiant du TMU par tmu0\_sbc alors j'ajoute "\_sbc" au}
+47         print(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)nchoice==> "}),
+48         tmu\_sbc=tmu+\textcolor{stringliteral}{"\_sbc"}
+49         print(tmu)
+50         \textcolor{comment}{#j'envoie la command pour sélectionner le tmu}
+51         self.TELNET.write(\textcolor{stringliteral}{"telci "}+tmu\_sbc+\textcolor{stringliteral}{"\(\backslash\)n"})
+52         \textcolor{comment}{#j'attend 5s pour que l'OMC est le temps nécessaire pour éxécuter la command précedente}
+53         time.sleep(5)
+54         \textcolor{comment}{#J'envoie la commande pour reseter le TMU}
+55         self.TELNET.write(\textcolor{stringliteral}{"bexc freeze\(\backslash\)n"})
+56         time.sleep(5)
+57         \textcolor{comment}{#J'autorise l'OMU à fermer son interface tmu}
+58         self.TELNET.write(\textcolor{stringliteral}{"Q\(\backslash\)n"})
+59         time.sleep(5)
+60         self.TELNET.write(\textcolor{stringliteral}{'exit\(\backslash\)n'})
+61         time.sleep(5)
+62         \textcolor{comment}{#Je mets cette varaible à true qui indique toutes les étapes se sont bien dérouler}
+63         self.TMU\_reset= \textcolor{keyword}{True}
+64         \textcolor{keywordflow}{return} tmu
+65 
+\end{DoxyCode}
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classScript_1_1omu_1_1OMU_a7ab79fab99cb1987d8826b5a715c61e5}\label{classScript_1_1omu_1_1OMU_a7ab79fab99cb1987d8826b5a715c61e5}} 
+\index{Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}!H\+O\+ST@{H\+O\+ST}}
+\index{H\+O\+ST@{H\+O\+ST}!Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}}
+\subsubsection{\texorpdfstring{H\+O\+ST}{HOST}}
+{\footnotesize\ttfamily Script.\+omu.\+O\+M\+U.\+H\+O\+ST}
+
+
+
+Définition à la ligne 25 du fichier omu.\+py.
+
+\mbox{\Hypertarget{classScript_1_1omu_1_1OMU_a56dd70ac0ae8683e51629cc22b6dddfc}\label{classScript_1_1omu_1_1OMU_a56dd70ac0ae8683e51629cc22b6dddfc}} 
+\index{Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}!List\+\_\+tmu@{List\+\_\+tmu}}
+\index{List\+\_\+tmu@{List\+\_\+tmu}!Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}}
+\subsubsection{\texorpdfstring{List\+\_\+tmu}{List\_tmu}}
+{\footnotesize\ttfamily Script.\+omu.\+O\+M\+U.\+List\+\_\+tmu}
+
+
+
+Définition à la ligne 78 du fichier omu.\+py.
+
+\mbox{\Hypertarget{classScript_1_1omu_1_1OMU_aa145f703e4bb94ab36c2f897a52488c7}\label{classScript_1_1omu_1_1OMU_aa145f703e4bb94ab36c2f897a52488c7}} 
+\index{Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}!P\+A\+S\+S\+W\+O\+RD@{P\+A\+S\+S\+W\+O\+RD}}
+\index{P\+A\+S\+S\+W\+O\+RD@{P\+A\+S\+S\+W\+O\+RD}!Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}}
+\subsubsection{\texorpdfstring{P\+A\+S\+S\+W\+O\+RD}{PASSWORD}}
+{\footnotesize\ttfamily Script.\+omu.\+O\+M\+U.\+P\+A\+S\+S\+W\+O\+RD}
+
+
+
+Définition à la ligne 28 du fichier omu.\+py.
+
+\mbox{\Hypertarget{classScript_1_1omu_1_1OMU_a92d77c41b840c87086283e2efed82f59}\label{classScript_1_1omu_1_1OMU_a92d77c41b840c87086283e2efed82f59}} 
+\index{Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}!T\+E\+L\+N\+ET@{T\+E\+L\+N\+ET}}
+\index{T\+E\+L\+N\+ET@{T\+E\+L\+N\+ET}!Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}}
+\subsubsection{\texorpdfstring{T\+E\+L\+N\+ET}{TELNET}}
+{\footnotesize\ttfamily Script.\+omu.\+O\+M\+U.\+T\+E\+L\+N\+ET}
+
+
+
+Définition à la ligne 29 du fichier omu.\+py.
+
+
+
+Référencé par Script.\+omu.\+O\+M\+U.\+get\+\_\+list\+\_\+tmu().
+
+\mbox{\Hypertarget{classScript_1_1omu_1_1OMU_ae52d30b3793b007ea99cef0877d9bcf4}\label{classScript_1_1omu_1_1OMU_ae52d30b3793b007ea99cef0877d9bcf4}} 
+\index{Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}!T\+M\+U\+\_\+reset@{T\+M\+U\+\_\+reset}}
+\index{T\+M\+U\+\_\+reset@{T\+M\+U\+\_\+reset}!Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}}
+\subsubsection{\texorpdfstring{T\+M\+U\+\_\+reset}{TMU\_reset}}
+{\footnotesize\ttfamily Script.\+omu.\+O\+M\+U.\+T\+M\+U\+\_\+reset}
+
+
+
+Définition à la ligne 45 du fichier omu.\+py.
+
+\mbox{\Hypertarget{classScript_1_1omu_1_1OMU_a2b281abf15a86f56b9d55b66513010be}\label{classScript_1_1omu_1_1OMU_a2b281abf15a86f56b9d55b66513010be}} 
+\index{Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}!U\+S\+ER@{U\+S\+ER}}
+\index{U\+S\+ER@{U\+S\+ER}!Script\+::omu\+::\+O\+MU@{Script\+::omu\+::\+O\+MU}}
+\subsubsection{\texorpdfstring{U\+S\+ER}{USER}}
+{\footnotesize\ttfamily Script.\+omu.\+O\+M\+U.\+U\+S\+ER}
+
+
+
+Définition à la ligne 27 du fichier omu.\+py.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{omu_8py}{omu.\+py}\end{DoxyCompactItemize}

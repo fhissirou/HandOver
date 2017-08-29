@@ -48,11 +48,11 @@ VALUE_FILE_CMD=""
 VALUE_FILE_SAVE=""
 VALUE_FILE_AUDIO=""
 
-"""
-cette frame controle tout les autres frames
-c'est elle qui initilisation les different type d'execution du programme
-avec la radiobutton chaque selection correspond une porgramme que l'utlisateur peut exécuter
-"""
+
+# cette frame controle tout les autres frames
+# c'est elle qui initilisation les different type d'execution du programme
+# avec la radiobutton chaque selection correspond une porgramme que l'utlisateur peut exécuter
+
 def Frame_init_option(self, otherFrame2 ,otherFrame3):
 	global VALUE_SELECT_CALL_OPTION
 	global VALUE_SELECT_CALL_CONFIG
@@ -68,7 +68,7 @@ def Frame_init_option(self, otherFrame2 ,otherFrame3):
 	labelFrame2= LabelFrame(labelFrame, text="Type of call",borderwidth=5, relief=GROOVE)
 	labelFrame2.grid(column=1,row=0,padx=14, pady=2)
 
-	call_config=["SIMPLE","RESET-TMU","PTP-PCM"]
+	call_config=["SIMPLE","RESET-TMU"]
 	call_modes=["PTP","DATA","VGCS","REC","VBS"]
 
 	j= 0
@@ -97,7 +97,8 @@ elle change en fonction des differentss selection de l'utilisateur depuis de la 
 a chaque selection elle intialise le champs option necessaire pour l'excution du programme 
 
 """
-
+# c'est la partie qui correspond au champ de selection des com des téléphone mobile
+# elle permet également de saisir des information comme le numéro du mobile qui réçois l'appel ou le champ qui correpond au groupe ID
 def Frame_select_com(self, val_type):
 	global VALUE_BOX_COM1 
 	global VALUE_BOX_COM2
@@ -117,7 +118,7 @@ def Frame_select_com(self, val_type):
 	global VALUE_ENTRY_OMU2_PASSWORD
 	global VALUE_ENTRY_OMU2_USER
 	global VALUE_ENTRY_NB_RTMU
-
+    # On initialise les variagle blogal
 	VALUE_BOX_COM1= StringVar()
 	VALUE_BOX_COM2= StringVar()
 
@@ -138,7 +139,10 @@ def Frame_select_com(self, val_type):
 	VALUE_ENTRY_OMU2_IP= StringVar()
 	VALUE_ENTRY_OMU2_PASSWORD= StringVar()
 	VALUE_ENTRY_OMU2_USER= StringVar()
-	
+	# Je definie mes label des diffrent catégorie de qui sont:
+    # Le choix des com mobiles pour selection les mobiles
+    # La deuxième partie correspond au configuration de l'OMC
+    # La dernire est ce lui de OMC (en tout on a deux OMC au total)
 	labelFrame1= LabelFrame(self, text="Choisir un port COM",borderwidth=10, relief=GROOVE)
 	labelFrame1.pack(padx=10, pady=5)
 
@@ -153,6 +157,9 @@ def Frame_select_com(self, val_type):
 	labelFrame4= LabelFrame(self, text="Config BSC2",borderwidth=10, relief=GROOVE)
 	labelFrame4.pack(padx=10,pady=5)
 
+    # j'inialise les paramètre de façon automatique
+    # ce qui permet à l'utilisatueur d'aller beaucoup plus vite
+    # néamoins l'utilisateur à toujours la possibilité de changer les paramètre s'il le souhaite 
 	text_1= "COM mobile phone:"
 	text_2= "COM Dispather:"
 	text_3= "Num Dispatcher:"
@@ -171,6 +178,8 @@ def Frame_select_com(self, val_type):
 
 
 #------------------------------------------------------------
+    # je définie mes Les label 
+    # ce sont des noms qui designent quel champ correspond à quelles informations
 	label_1= Label(labelFrame1,width=20, text=text_1)
 	label_2= Label(labelFrame1,width=20, text=text_2)
 	label_3= Label(labelFrame1,width=20, text=text_3)
@@ -194,6 +203,8 @@ def Frame_select_com(self, val_type):
 
 
 #------------------------------------------------------------------------------------------------
+    # je definie les champs entry pour saisir les information
+    # Le champ de type Combotox propose à l'utilisateur la liste des com disponible sur le PC
 
 	box_com1= ttk.Combobox(labelFrame1, width=25, textvariable=VALUE_BOX_COM1, state= 'readonly')
 	box_com2= ttk.Combobox(labelFrame1, width=25, textvariable=VALUE_BOX_COM2, state='readonly')
@@ -218,7 +229,7 @@ def Frame_select_com(self, val_type):
 
 
 #-------------------------------------------------------------------------------------
-
+    # la fonction scan_com permet de sauvergarder la liste des com disponible
 	box_com1['values']= Scan_com()
 	box_com1.current(0)
 
@@ -243,7 +254,7 @@ def Frame_select_com(self, val_type):
 	VALUE_ENTRY_OMU2_PASSWORD.set("omu")
 
 #---------------------------------------------------------------------------------------------
-
+    # je position chanque champs dans un grille pour avoir une interface jolie
 	label_1.grid(column=0, row=0, sticky=E)
 	label_2.grid(column=0, row=1, sticky=E)
 	label_3.grid(column=0, row=2, sticky=E)
@@ -300,7 +311,9 @@ def Frame_btn_execution(self):
 	bouton_exec.grid(column=3, row=0,)
 
 
-
+# elle scan la liste des comme disponible sur la machine
+# neamoins cette fonction ne vous permet de savoir quelle COM correspond à quel mobile
+# donc vous devez quand même savoir par d'autres les COM de vos mobiles
 def Scan_com():
 	available=[]
 	try:
@@ -316,6 +329,9 @@ def Scan_com():
 		print("In file Interface; ligne 247")
 		print(e)
 
+# cette Fonction verifie que tous les arguments
+# elle verifie que tous les information nécessaire sont siasie 
+# cela permet d'eviter des bugs ou errors
 def verif_args():
 	global VALUE_BOX_COM1 
 	global VALUE_BOX_COM2
@@ -348,12 +364,17 @@ def verif_args():
 	rec_mode= False
 	vbs_mode= False
 
+    # On veirifie que les entrés sont bien présent
+    # On verifie l'existance des tous les chanmps obligatoire
+    # ensuite on essaye de savoir les options utilisé par l'utilisateur
 	if (len(VALUE_ENTRY_OMC_IP.get()) > 0) and (len(VALUE_ENTRY_OMC_USER.get()) > 0) and (len(VALUE_ENTRY_OMC_PASSWORD.get()) > 0) and\
 	(len(VALUE_ENTRY_OMU1_IP.get()) > 0) and (len(VALUE_ENTRY_OMU1_USER.get()) > 0) and (len(VALUE_ENTRY_OMU1_PASSWORD.get()) > 0) and \
 	(len(VALUE_ENTRY_OMU2_IP.get()) > 0) and (len(VALUE_ENTRY_OMU2_USER.get()) > 0) and (len(VALUE_ENTRY_OMU2_PASSWORD.get()) > 0) and \
 	(len(VALUE_BOX_COM1.get()) > 0) and (VALUE_BOX_COM1.get()  != VALUE_BOX_COM2.get()) and (len(VALUE_ENTRY_PHONE_NUMERO.get()) > 0) and \
 	(len(VALUE_ENTRY_GROUP_ID.get()) > 0) and (len(VALUE_ENTRY_ATCBST.get()) > 0) and (len(VALUE_ENTRY_NB_RTMU.get()) > 0):
 		
+        # lacette Boucle permet de savoir la configuration choisi par l'utilisateur
+        # On  deux type de configuration SIMPLe pour un handOver simple ou RESET-TMU pour reseter le TMU
 		for cle in VALUE_SELECT_CALL_CONFIG:
 			if VALUE_SELECT_CALL_CONFIG[cle].get() == 1:
 				if cle == "SIMPLE":
@@ -366,6 +387,10 @@ def verif_args():
 					set_config= False
 					print("Veuillez remplir tous les champs")
 
+        # Ici chercher à savoir les types d'appel choisi par l'utilisateur
+        # ce types peut PTP pour l'appel voix
+        # DATA pour appel data
+        # VGCS VBS et REC font parties de la famille de groupe call ensuite on fait appel a la classe handOver pour en lui donnant les paramètre
 		for cle in VALUE_SELECT_CALL_OPTION:
 			if VALUE_SELECT_CALL_OPTION[cle].get() == 1:
 				if cle == "PTP":
@@ -390,14 +415,17 @@ def verif_args():
 		if (set_call_option== False) or (set_config== False):
 			print("Veuillez remplir tous les champs")
 		else:
+            # On fait appel de la classe begin_handOver une fois que l'utilisateur clic sur le bouton d'exécuter
 			handOver.begin_handOver(simple_mode, tmu_mode, ptp_mode, data_mode, vgcs_mode, rec_mode, vbs_mode)
 	else:
 		print("Veuillez remplir tous les champs")
 
 
-"""
-a voir 
-"""
+
+# Cette fonction de supprimer des caractère speciaux lorqu'on fait un read du mobile
+# Cela permet de mieux veirifier que les information retourner par le mobile
+# Ca aide le programme à mieux prendre les decision 
+
 def split_chaine(chaine, caractere):
 	carac_chaine=["[","]", "\n", "\r"]
 	new_chaine=""

@@ -1,0 +1,125 @@
+\hypertarget{classScript_1_1omc_1_1OMC}{}\section{Référence de la classe Script.\+omc.\+O\+MC}
+\label{classScript_1_1omc_1_1OMC}\index{Script.\+omc.\+O\+MC@{Script.\+omc.\+O\+MC}}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classScript_1_1omc_1_1OMC_aa3c241e906a6b92a02bcf19c23237f9f}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+def \hyperlink{classScript_1_1omc_1_1OMC_a8446de2325ea79f5574f2822da38b5cf}{run\+\_\+senario} (self, type\+\_\+call)
+\item 
+def \hyperlink{classScript_1_1omc_1_1OMC_ab6343718d0b1413540880ece035578f7}{verif\+\_\+call\+\_\+busy} (self, chaine)
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 14 du fichier omc.\+py.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classScript_1_1omc_1_1OMC_aa3c241e906a6b92a02bcf19c23237f9f}\label{classScript_1_1omc_1_1OMC_aa3c241e906a6b92a02bcf19c23237f9f}} 
+\index{Script\+::omc\+::\+O\+MC@{Script\+::omc\+::\+O\+MC}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!Script\+::omc\+::\+O\+MC@{Script\+::omc\+::\+O\+MC}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Script.\+omc.\+O\+M\+C.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 16 du fichier omc.\+py.
+
+
+\begin{DoxyCode}
+16     \textcolor{keyword}{def }\_\_init\_\_(self):
+17         \textcolor{comment}{#On récupère les identifiant que l'utilisateur à saisi depuis l'interface graphique}
+18         env.host\_string=interfaceFrame.VALUE\_ENTRY\_OMC\_IP.get()
+19         env.user=interfaceFrame.VALUE\_ENTRY\_OMC\_USER.get()
+20         env.password=interfaceFrame.VALUE\_ENTRY\_OMC\_PASSWORD.get()
+21 
+\end{DoxyCode}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classScript_1_1omc_1_1OMC_a8446de2325ea79f5574f2822da38b5cf}\label{classScript_1_1omc_1_1OMC_a8446de2325ea79f5574f2822da38b5cf}} 
+\index{Script\+::omc\+::\+O\+MC@{Script\+::omc\+::\+O\+MC}!run\+\_\+senario@{run\+\_\+senario}}
+\index{run\+\_\+senario@{run\+\_\+senario}!Script\+::omc\+::\+O\+MC@{Script\+::omc\+::\+O\+MC}}
+\subsubsection{\texorpdfstring{run\+\_\+senario()}{run\_senario()}}
+{\footnotesize\ttfamily def Script.\+omc.\+O\+M\+C.\+run\+\_\+senario (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{type\+\_\+call }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 24 du fichier omc.\+py.
+
+
+\begin{DoxyCode}
+24     \textcolor{keyword}{def }run\_senario(self, type\_call):
+25         \textcolor{comment}{#liste des fichiers trouvant sur l'OMC}
+26         str\_force\_ho\_bsc1= \textcolor{stringliteral}{"/usr/local/oam/bin/ds\_executeCmdFile.sh
+       -F/OMC/data/cmdFile/root/users/fhissirou/Force\_HO\_BSC17 -Uoam -Pbssds1995"}
+27         str\_force\_ho\_bsc2= \textcolor{stringliteral}{"/usr/local/oam/bin/ds\_executeCmdFile.sh
+       -F/OMC/data/cmdFile/root/users/fhissirou/Force\_HO\_BSC140 -Uoam -Pbssds1995"}
+28         str\_call\_busy\_bsc1= \textcolor{stringliteral}{"/usr/local/oam/bin/ds\_executeCmdFile.sh
+       -F/OMC/data/cmdFile/root/users/fhissirou/Display\_CHANNEL\_BSC17 -Uoam -Pbssds1995"}
+29         str\_call\_busy\_bsc2=\textcolor{stringliteral}{"/usr/local/oam/bin/ds\_executeCmdFile.sh
+       -F/OMC/data/cmdFile/root/users/fhissirou/Display\_CHANNEL\_BSC140 -Uoam -Pbssds1995"}
+30         
+31         \textcolor{comment}{# je vais un cd pour me placer dans le repertoire fhissirou qui se trouve sur l'OMC}
+32         with cd(\textcolor{stringliteral}{'/OMC/data/cmdFile/root/users/fhissirou/'}):
+33             \textcolor{comment}{#je récupère le nombre de call processus busy, normalement tous chacun des mobiles devrait se
+       trouver sur BSC différent}
+34             nbbusy\_bsc1\_1= self.verif\_call\_busy(run(str\_call\_busy\_bsc1,shell=\textcolor{keyword}{False}, pty=\textcolor{keyword}{False}))
+35             nbbusy\_bsc2\_1= self.verif\_call\_busy( run(str\_call\_busy\_bsc2,shell=\textcolor{keyword}{False}, pty=\textcolor{keyword}{False}))
+36 
+37             \textcolor{comment}{#je fais un force handOver sur le premier BSC 17}
+38             \textcolor{comment}{#donc tous les mobiles devront basculer sur le BSC 140}
+39             run(str\_force\_ho\_bsc1,shell=\textcolor{keyword}{False}, pty=\textcolor{keyword}{False})
+40 
+41             \textcolor{comment}{#Je recupère le nombre call bussy sur le }
+42             nbbusy\_bsc1\_2= self.verif\_call\_busy(run(str\_call\_busy\_bsc1,shell=\textcolor{keyword}{False}, pty=\textcolor{keyword}{False}))
+43             nbbusy\_bsc2\_2= self.verif\_call\_busy(run(str\_call\_busy\_bsc2,shell=\textcolor{keyword}{False}, pty=\textcolor{keyword}{False}))
+44             \textcolor{comment}{#je fais un force handOver sur le BSC140}
+45             \textcolor{comment}{#donc les mobiles du BSC17 devront retourner dans leur possition initiale }
+46             run(str\_force\_ho\_bsc2,shell=\textcolor{keyword}{False}, pty=\textcolor{keyword}{False})
+47             \textcolor{comment}{#je verifie à nouveau le nombre de call bussy}
+48             nbbusy\_bsc1\_3= self.verif\_call\_busy(run(str\_call\_busy\_bsc1,shell=\textcolor{keyword}{False}, pty=\textcolor{keyword}{False}))
+49             nbbusy\_bsc2\_3= self.verif\_call\_busy(run(str\_call\_busy\_bsc2,shell=\textcolor{keyword}{False}, pty=\textcolor{keyword}{False}))
+50             
+51             \textcolor{comment}{# je commpare le nombre de bussy avant, pendant et après le handOver }
+52             \textcolor{comment}{#cela permet de savoir si le HandOver a été success ou error}
+53             \textcolor{keywordflow}{if} (nbbusy\_bsc1\_2 != nbbusy\_bsc1\_1) \textcolor{keywordflow}{or} (nbbusy\_bsc1\_2 != nbbusy\_bsc1\_3):
+54                 \textcolor{keywordflow}{if} (nbbusy\_bsc2\_2 != nbbusy\_bsc2\_1) \textcolor{keywordflow}{or} (nbbusy\_bsc2\_2 != nbbusy\_bsc2\_3):
+55                     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"OK"}
+56                 \textcolor{keywordflow}{else}:
+57                     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"ERROR"}
+58             \textcolor{keywordflow}{elif} (type\_call == \textcolor{stringliteral}{"vgcs"}) \textcolor{keywordflow}{or} (type\_call == \textcolor{stringliteral}{"rec"}):
+59                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"OK"}
+60 
+61         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"ERROR"}
+62 
+63 
+\end{DoxyCode}
+\mbox{\Hypertarget{classScript_1_1omc_1_1OMC_ab6343718d0b1413540880ece035578f7}\label{classScript_1_1omc_1_1OMC_ab6343718d0b1413540880ece035578f7}} 
+\index{Script\+::omc\+::\+O\+MC@{Script\+::omc\+::\+O\+MC}!verif\+\_\+call\+\_\+busy@{verif\+\_\+call\+\_\+busy}}
+\index{verif\+\_\+call\+\_\+busy@{verif\+\_\+call\+\_\+busy}!Script\+::omc\+::\+O\+MC@{Script\+::omc\+::\+O\+MC}}
+\subsubsection{\texorpdfstring{verif\+\_\+call\+\_\+busy()}{verif\_call\_busy()}}
+{\footnotesize\ttfamily def Script.\+omc.\+O\+M\+C.\+verif\+\_\+call\+\_\+busy (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{chaine }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 65 du fichier omc.\+py.
+
+
+\begin{DoxyCode}
+65     \textcolor{keyword}{def }verif\_call\_busy(self, chaine):
+66         compt= 0
+67         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} chaine.split(\textcolor{stringliteral}{'\(\backslash\)n'}):
+68             \textcolor{keywordflow}{if} (line.find(\textcolor{stringliteral}{'busy'}) != -1) \textcolor{keywordflow}{and} (line.find(\textcolor{stringliteral}{'TCH'}) != -1) \textcolor{keywordflow}{and} (line.find(\textcolor{stringliteral}{'timeslot'}) != -1):
+69                 compt+=1
+70         \textcolor{keywordflow}{return} compt
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{omc_8py}{omc.\+py}\end{DoxyCompactItemize}

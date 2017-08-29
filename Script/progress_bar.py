@@ -11,7 +11,9 @@ import datetime
 import calendar
 import math 
 
-
+#Cette classe permet de creer une barre de progression
+# une fois que l'utilisateur clic sur le bouton la barre de progression se lance automatique
+# elle a pour intérer d'enpêcher l'utilisateur à modifier le contenu des champs pendant l'exécution du programme
 class SampleApp(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
@@ -33,7 +35,7 @@ class SampleApp(tk.Tk):
 		self.pas=0
 
 
-
+    # On lance la barre de progression en definissant la taille et la vitesse de progression
 	def start(self):
 		self.progress["value"] = 0
 		self.maxbytes = self.end_time

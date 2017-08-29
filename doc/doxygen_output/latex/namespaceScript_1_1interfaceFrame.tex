@@ -1,0 +1,622 @@
+\hypertarget{namespaceScript_1_1interfaceFrame}{}\section{Référence de l\textquotesingle{}espace de nommage Script.\+interface\+Frame}
+\label{namespaceScript_1_1interfaceFrame}\index{Script.\+interface\+Frame@{Script.\+interface\+Frame}}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceScript_1_1interfaceFrame_aa7f559f2c9e8af048daa456cb3686155}{Frame\+\_\+init\+\_\+option} (self, other\+Frame2, other\+Frame3)
+\item 
+def \hyperlink{namespaceScript_1_1interfaceFrame_a3538cb8357b74776a380240ed3221bc0}{Frame\+\_\+select\+\_\+com} (self, val\+\_\+type)
+\item 
+def \hyperlink{namespaceScript_1_1interfaceFrame_ae94a2df22674070fddf2ae5197a09a6f}{Frame\+\_\+btn\+\_\+execution} (self)
+\item 
+def \hyperlink{namespaceScript_1_1interfaceFrame_a76119121c3aceb43846ba3ea526623ad}{Scan\+\_\+com} ()
+\item 
+def \hyperlink{namespaceScript_1_1interfaceFrame_a7a90dd83e0b67edcf2dee870d927e98e}{verif\+\_\+args} ()
+\item 
+def \hyperlink{namespaceScript_1_1interfaceFrame_ab554e77db5080fb2eae78e39ebbeb395}{split\+\_\+chaine} (chaine, caractere)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceScript_1_1interfaceFrame_ab8e385a4d6a1f87628b963bc0a385519}{begin\+\_\+time} = time.\+time()
+\item 
+int \hyperlink{namespaceScript_1_1interfaceFrame_ace1207561541cc3ee3af9b2f33b2a316}{val\+\_\+line} = 0
+\item 
+string \hyperlink{namespaceScript_1_1interfaceFrame_a2cfacdb24b52e8cf5d9667d91a5c58ab}{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+O\+NF} = \char`\"{}\char`\"{}
+\item 
+string \hyperlink{namespaceScript_1_1interfaceFrame_a3704b57444e587c904b839d2dfef2b7e}{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+MD} = \char`\"{}\char`\"{}
+\item 
+string \hyperlink{namespaceScript_1_1interfaceFrame_a8933d662775f7e5fc3e0b8e5fb499b24}{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+S\+A\+VE} = \char`\"{}\char`\"{}
+\item 
+string \hyperlink{namespaceScript_1_1interfaceFrame_a235ac21d18cefa672100db29db0ed490}{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+A\+U\+D\+IO} = \char`\"{}\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_ae94a2df22674070fddf2ae5197a09a6f}\label{namespaceScript_1_1interfaceFrame_ae94a2df22674070fddf2ae5197a09a6f}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!Frame\+\_\+btn\+\_\+execution@{Frame\+\_\+btn\+\_\+execution}}
+\index{Frame\+\_\+btn\+\_\+execution@{Frame\+\_\+btn\+\_\+execution}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{Frame\+\_\+btn\+\_\+execution()}{Frame\_btn\_execution()}}
+{\footnotesize\ttfamily def Script.\+interface\+Frame.\+Frame\+\_\+btn\+\_\+execution (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 307 du fichier interface\+Frame.\+py.
+
+
+
+Références Script.\+interface\+Frame.\+verif\+\_\+args().
+
+
+\begin{DoxyCode}
+307 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1interfaceFrame_ae94a2df22674070fddf2ae5197a09a6f}{Frame\_btn\_execution}(self):
+308     self= Frame(self)
+309     self.pack(side=TOP, padx=5, pady=5)
+310     bouton\_exec= Button(self,width=10, text=\textcolor{stringliteral}{"Exécute"}, command=\textcolor{keyword}{lambda}:\hyperlink{namespaceScript_1_1interfaceFrame_a7a90dd83e0b67edcf2dee870d927e98e}{verif\_args}())
+311     bouton\_exec.grid(column=3, row=0,)
+312 
+313 
+314 \textcolor{comment}{# elle scan la liste des comme disponible sur la machine}
+315 \textcolor{comment}{# neamoins cette fonction ne vous permet de savoir quelle COM correspond à quel mobile}
+316 \textcolor{comment}{# donc vous devez quand même savoir par d'autres les COM de vos mobiles}
+\end{DoxyCode}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceScript_1_1interfaceFrame_ae94a2df22674070fddf2ae5197a09a6f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_aa7f559f2c9e8af048daa456cb3686155}\label{namespaceScript_1_1interfaceFrame_aa7f559f2c9e8af048daa456cb3686155}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!Frame\+\_\+init\+\_\+option@{Frame\+\_\+init\+\_\+option}}
+\index{Frame\+\_\+init\+\_\+option@{Frame\+\_\+init\+\_\+option}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{Frame\+\_\+init\+\_\+option()}{Frame\_init\_option()}}
+{\footnotesize\ttfamily def Script.\+interface\+Frame.\+Frame\+\_\+init\+\_\+option (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{other\+Frame2,  }\item[{}]{other\+Frame3 }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 56 du fichier interface\+Frame.\+py.
+
+
+\begin{DoxyCode}
+56 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1interfaceFrame_aa7f559f2c9e8af048daa456cb3686155}{Frame\_init\_option}(self, otherFrame2 ,otherFrame3):
+57     \textcolor{keyword}{global} VALUE\_SELECT\_CALL\_OPTION
+58     \textcolor{keyword}{global} VALUE\_SELECT\_CALL\_CONFIG
+59     VALUE\_SELECT\_CALL\_OPTION=\{\}
+60     VALUE\_SELECT\_CALL\_CONFIG=\{\}
+61 
+62     labelFrame= LabelFrame(self, text=\textcolor{stringliteral}{"CONFIG HandOver"},borderwidth=10, relief=GROOVE)
+63     labelFrame.pack(side=TOP, padx=10, pady=5)
+64 
+65     labelFrame1= LabelFrame(labelFrame, text=\textcolor{stringliteral}{"HandOver Type"},borderwidth=5, relief=GROOVE)
+66     labelFrame1.grid(column=0,row=0,padx=14, pady=2)
+67 
+68     labelFrame2= LabelFrame(labelFrame, text=\textcolor{stringliteral}{"Type of call"},borderwidth=5, relief=GROOVE)
+69     labelFrame2.grid(column=1,row=0,padx=14, pady=2)
+70 
+71     call\_config=[\textcolor{stringliteral}{"SIMPLE"},\textcolor{stringliteral}{"RESET-TMU"}]
+72     call\_modes=[\textcolor{stringliteral}{"PTP"},\textcolor{stringliteral}{"DATA"},\textcolor{stringliteral}{"VGCS"},\textcolor{stringliteral}{"REC"},\textcolor{stringliteral}{"VBS"}]
+73 
+74     j= 0
+75 
+76     \textcolor{keywordflow}{for} text \textcolor{keywordflow}{in} call\_config:
+77         var\_call\_config = IntVar()
+78         var\_call\_config.set(1)
+79         VALUE\_SELECT\_CALL\_CONFIG[text]= var\_call\_config
+80         bouton= ttk.Checkbutton(labelFrame1, text=text, variable=VALUE\_SELECT\_CALL\_CONFIG[text])
+81         bouton.state([\textcolor{stringliteral}{'!disabled'},\textcolor{stringliteral}{'selected'}])
+82         bouton.grid(row=j, padx= 35,sticky=W)
+83         j+=1
+84     j= 0
+85     \textcolor{keywordflow}{for} text \textcolor{keywordflow}{in} call\_modes:
+86         var\_select = IntVar()
+87         var\_select.set(1)
+88 
+89         VALUE\_SELECT\_CALL\_OPTION[text]= var\_select
+90         bouton= ttk.Checkbutton(labelFrame2, text=text, variable=VALUE\_SELECT\_CALL\_OPTION[text])
+91         bouton.state([\textcolor{stringliteral}{'!disabled'},\textcolor{stringliteral}{'selected'}])
+92         bouton.grid(row=j, padx= 35,sticky=W)
+93         j+=1
+94 \textcolor{stringliteral}{"""}
+95 \textcolor{stringliteral}{c'est la deuxieme frame de la frame principale,}
+96 \textcolor{stringliteral}{elle change en fonction des differentss selection de l'utilisateur depuis de la frame\_init\_option}
+97 \textcolor{stringliteral}{a chaque selection elle intialise le champs option necessaire pour l'excution du programme }
+98 \textcolor{stringliteral}{}
+99 \textcolor{stringliteral}{"""}
+100 \textcolor{comment}{# c'est la partie qui correspond au champ de selection des com des téléphone mobile}
+101 \textcolor{comment}{# elle permet également de saisir des information comme le numéro du mobile qui réçois l'appel ou le champ
+       qui correpond au groupe ID}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_a3538cb8357b74776a380240ed3221bc0}\label{namespaceScript_1_1interfaceFrame_a3538cb8357b74776a380240ed3221bc0}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!Frame\+\_\+select\+\_\+com@{Frame\+\_\+select\+\_\+com}}
+\index{Frame\+\_\+select\+\_\+com@{Frame\+\_\+select\+\_\+com}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{Frame\+\_\+select\+\_\+com()}{Frame\_select\_com()}}
+{\footnotesize\ttfamily def Script.\+interface\+Frame.\+Frame\+\_\+select\+\_\+com (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{val\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 102 du fichier interface\+Frame.\+py.
+
+
+
+Références Script.\+interface\+Frame.\+Scan\+\_\+com().
+
+
+\begin{DoxyCode}
+102 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1interfaceFrame_a3538cb8357b74776a380240ed3221bc0}{Frame\_select\_com}(self, val\_type):
+103     \textcolor{keyword}{global} VALUE\_BOX\_COM1 
+104     \textcolor{keyword}{global} VALUE\_BOX\_COM2
+105     \textcolor{keyword}{global} VALUE\_ENTRY\_PHONE\_NUMERO
+106     \textcolor{keyword}{global} VALUE\_ENTRY\_ATCBST
+107     \textcolor{keyword}{global} VALUE\_ENTRY\_GROUP\_ID
+108 
+109     \textcolor{keyword}{global} VALUE\_ENTRY\_OMC\_IP
+110     \textcolor{keyword}{global} VALUE\_ENTRY\_OMC\_PASSWORD
+111     \textcolor{keyword}{global} VALUE\_ENTRY\_OMC\_USER
+112 
+113     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU1\_IP
+114     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU1\_PASSWORD
+115     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU1\_USER
+116 
+117     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU2\_IP
+118     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU2\_PASSWORD
+119     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU2\_USER
+120     \textcolor{keyword}{global} VALUE\_ENTRY\_NB\_RTMU
+121     \textcolor{comment}{# On initialise les variagle blogal}
+122     VALUE\_BOX\_COM1= StringVar()
+123     VALUE\_BOX\_COM2= StringVar()
+124 
+125     VALUE\_ENTRY\_PHONE\_NUMERO= StringVar()
+126     VALUE\_ENTRY\_ATCBST= StringVar()
+127     VALUE\_ENTRY\_GROUP\_ID= StringVar()
+128     VALUE\_ENTRY\_NB\_RTMU= StringVar()
+129 
+130     VALUE\_ENTRY\_OMC\_IP= StringVar()
+131     VALUE\_ENTRY\_OMC\_PASSWORD= StringVar()
+132     VALUE\_ENTRY\_OMC\_USER= StringVar()
+133 
+134 
+135     VALUE\_ENTRY\_OMU1\_IP= StringVar()
+136     VALUE\_ENTRY\_OMU1\_PASSWORD= StringVar()
+137     VALUE\_ENTRY\_OMU1\_USER= StringVar()
+138 
+139     VALUE\_ENTRY\_OMU2\_IP= StringVar()
+140     VALUE\_ENTRY\_OMU2\_PASSWORD= StringVar()
+141     VALUE\_ENTRY\_OMU2\_USER= StringVar()
+142     \textcolor{comment}{# Je definie mes label des diffrent catégorie de qui sont:}
+143     \textcolor{comment}{# Le choix des com mobiles pour selection les mobiles}
+144     \textcolor{comment}{# La deuxième partie correspond au configuration de l'OMC}
+145     \textcolor{comment}{# La dernire est ce lui de OMC (en tout on a deux OMC au total)}
+146     labelFrame1= LabelFrame(self, text=\textcolor{stringliteral}{"Choisir un port COM"},borderwidth=10, relief=GROOVE)
+147     labelFrame1.pack(padx=10, pady=5)
+148 
+149 
+150     labelFrame2= LabelFrame(self, text=\textcolor{stringliteral}{"Config OMC"},borderwidth=10, relief=GROOVE)
+151     labelFrame2.pack(padx=10,pady=5)
+152 
+153 
+154     labelFrame3= LabelFrame(self, text=\textcolor{stringliteral}{"Config BSC1"},borderwidth=10, relief=GROOVE)
+155     labelFrame3.pack(padx=10,pady=5)
+156 
+157     labelFrame4= LabelFrame(self, text=\textcolor{stringliteral}{"Config BSC2"},borderwidth=10, relief=GROOVE)
+158     labelFrame4.pack(padx=10,pady=5)
+159 
+160     \textcolor{comment}{# j'inialise les paramètre de façon automatique}
+161     \textcolor{comment}{# ce qui permet à l'utilisatueur d'aller beaucoup plus vite}
+162     \textcolor{comment}{# néamoins l'utilisateur à toujours la possibilité de changer les paramètre s'il le souhaite }
+163     text\_1= \textcolor{stringliteral}{"COM mobile phone:"}
+164     text\_2= \textcolor{stringliteral}{"COM Dispather:"}
+165     text\_3= \textcolor{stringliteral}{"Num Dispatcher:"}
+166     text\_4= \textcolor{stringliteral}{"Cmd AT+CBST:"}
+167     text\_5= \textcolor{stringliteral}{"Goupe ID:"}
+168     text\_6= \textcolor{stringliteral}{"NB Reset TMU:"}
+169 
+170     text\_omc\_ip= \textcolor{stringliteral}{"Hostname"}
+171     text\_omc\_user= \textcolor{stringliteral}{"Username"}
+172     text\_omc\_password= \textcolor{stringliteral}{"Password"}
+173 
+174     text\_omu\_ip= \textcolor{stringliteral}{"Hostname"}
+175     text\_omu\_user= \textcolor{stringliteral}{"Username"}
+176     text\_omu\_password= \textcolor{stringliteral}{"Password"}
+177 
+178 
+179 
+180 \textcolor{comment}{#------------------------------------------------------------}
+181     \textcolor{comment}{# je définie mes Les label }
+182     \textcolor{comment}{# ce sont des noms qui designent quel champ correspond à quelles informations}
+183     label\_1= Label(labelFrame1,width=20, text=text\_1)
+184     label\_2= Label(labelFrame1,width=20, text=text\_2)
+185     label\_3= Label(labelFrame1,width=20, text=text\_3)
+186     label\_4= Label(labelFrame1,borderwidth=5, width=21, text=text\_4)
+187     label\_5= Label(labelFrame1,borderwidth=5, width=21, text=text\_5)
+188     label\_6= Label(labelFrame1,borderwidth=5, width=21, text=text\_6)
+189 
+190     label\_omc\_ip= Label(labelFrame2,width=10, text=text\_omc\_ip)
+191     label\_omu1\_ip= Label(labelFrame3,width=10, text=text\_omu\_ip)
+192     label\_omu2\_ip= Label(labelFrame4,width=10, text=text\_omu\_ip)
+193 
+194     label\_omc\_user= Label(labelFrame2,width=10, text=text\_omc\_user)
+195     label\_omu1\_user= Label(labelFrame3,width=10, text=text\_omu\_user)
+196     label\_omu2\_user= Label(labelFrame4,width=10, text=text\_omu\_user)
+197 
+198     label\_omc\_password= Label(labelFrame2,width=10, text=text\_omc\_password)
+199     label\_omu1\_password= Label(labelFrame3,width=10, text=text\_omu\_password)
+200     label\_omu2\_password= Label(labelFrame4,width=10, text=text\_omu\_password)
+201 
+202 
+203 
+204 
+205 \textcolor{comment}{#------------------------------------------------------------------------------------------------}
+206     \textcolor{comment}{# je definie les champs entry pour saisir les information}
+207     \textcolor{comment}{# Le champ de type Combotox propose à l'utilisateur la liste des com disponible sur le PC}
+208 
+209     box\_com1= ttk.Combobox(labelFrame1, width=25, textvariable=VALUE\_BOX\_COM1, state= \textcolor{stringliteral}{'readonly'})
+210     box\_com2= ttk.Combobox(labelFrame1, width=25, textvariable=VALUE\_BOX\_COM2, state=\textcolor{stringliteral}{'readonly'})
+211 
+212     entry\_id= Entry(labelFrame1,borderwidth=5, textvariable=VALUE\_ENTRY\_GROUP\_ID, width=28)
+213     entry\_num= Entry(labelFrame1,borderwidth=5,textvariable=VALUE\_ENTRY\_PHONE\_NUMERO, width=28)
+214     entry\_atcbst= Entry(labelFrame1,borderwidth=5, textvariable=VALUE\_ENTRY\_ATCBST, width=28)
+215     entry\_nb\_rtmu= Entry(labelFrame1,borderwidth=5, textvariable=VALUE\_ENTRY\_NB\_RTMU, width=28)
+216 
+217     omc\_ip= Entry(labelFrame2, borderwidth=5, textvariable=VALUE\_ENTRY\_OMC\_IP ,width=18)
+218     omc\_user= Entry(labelFrame2, borderwidth=5,textvariable=VALUE\_ENTRY\_OMC\_USER, width=16)
+219     omc\_password= Entry(labelFrame2, borderwidth=5, textvariable=VALUE\_ENTRY\_OMC\_PASSWORD, width=16)
+220 
+221     omu1\_ip= Entry(labelFrame3, borderwidth=5, textvariable=VALUE\_ENTRY\_OMU1\_IP ,width=18)
+222     omu1\_user= Entry(labelFrame3,borderwidth=5, textvariable=VALUE\_ENTRY\_OMU1\_USER, width=16)
+223     omu1\_password= Entry(labelFrame3, borderwidth=5, textvariable=VALUE\_ENTRY\_OMU1\_PASSWORD, width=16)
+224 
+225     omu2\_ip= Entry(labelFrame4, borderwidth=5, textvariable=VALUE\_ENTRY\_OMU2\_IP ,width=18)
+226     omu2\_user= Entry(labelFrame4,borderwidth=5, textvariable=VALUE\_ENTRY\_OMU2\_USER, width=16)
+227     omu2\_password= Entry(labelFrame4, borderwidth=5, textvariable=VALUE\_ENTRY\_OMU2\_PASSWORD, width=16)
+228 
+229 
+230 
+231 \textcolor{comment}{#-------------------------------------------------------------------------------------}
+232     \textcolor{comment}{# la fonction scan\_com permet de sauvergarder la liste des com disponible}
+233     box\_com1[\textcolor{stringliteral}{'values'}]= \hyperlink{namespaceScript_1_1interfaceFrame_a76119121c3aceb43846ba3ea526623ad}{Scan\_com}()
+234     box\_com1.current(0)
+235 
+236     box\_com2[\textcolor{stringliteral}{'values'}]= \hyperlink{namespaceScript_1_1interfaceFrame_a76119121c3aceb43846ba3ea526623ad}{Scan\_com}()
+237     box\_com2.current(0)
+238 
+239     VALUE\_ENTRY\_PHONE\_NUMERO.set(\textcolor{stringliteral}{"555558000265"})
+240     VALUE\_ENTRY\_ATCBST.set(\textcolor{stringliteral}{"70,0,0"})
+241     VALUE\_ENTRY\_GROUP\_ID.set(\textcolor{stringliteral}{"200"})
+242     VALUE\_ENTRY\_NB\_RTMU.set(\textcolor{stringliteral}{"2"})
+243 
+244     VALUE\_ENTRY\_OMC\_IP.set(\textcolor{stringliteral}{"172.21.155.71"})
+245     VALUE\_ENTRY\_OMC\_USER.set(\textcolor{stringliteral}{"omc"})
+246     VALUE\_ENTRY\_OMC\_PASSWORD.set(\textcolor{stringliteral}{"nortel"})
+247 
+248     VALUE\_ENTRY\_OMU1\_IP.set(\textcolor{stringliteral}{"47.164.27.128"})
+249     VALUE\_ENTRY\_OMU1\_USER.set(\textcolor{stringliteral}{"omu"})
+250     VALUE\_ENTRY\_OMU1\_PASSWORD.set(\textcolor{stringliteral}{"omu"})
+251 
+252     VALUE\_ENTRY\_OMU2\_IP.set(\textcolor{stringliteral}{"47.164.27.144"})
+253     VALUE\_ENTRY\_OMU2\_USER.set(\textcolor{stringliteral}{"omu"})
+254     VALUE\_ENTRY\_OMU2\_PASSWORD.set(\textcolor{stringliteral}{"omu"})
+255 
+256 \textcolor{comment}{#---------------------------------------------------------------------------------------------}
+257     \textcolor{comment}{# je position chanque champs dans un grille pour avoir une interface jolie}
+258     label\_1.grid(column=0, row=0, sticky=E)
+259     label\_2.grid(column=0, row=1, sticky=E)
+260     label\_3.grid(column=0, row=2, sticky=E)
+261     label\_4.grid(column=0, row=3, sticky=E)
+262     label\_5.grid(column=0, row=4, sticky=E)
+263     label\_6.grid(column=0, row=5, sticky=E)
+264 
+265 
+266 
+267 \textcolor{comment}{#---------------------------------------------------------------}
+268     box\_com1.grid(column=1, row=0, padx=10, pady=10, sticky=W)
+269     box\_com2.grid(column=1, row=1, padx=10, pady=10, sticky=W)
+270     entry\_num.grid(column=1, row=2, padx=10, pady=10, sticky=W)
+271     entry\_atcbst.grid(column=1, row=3, padx=10, pady=10, sticky=W)
+272     entry\_id.grid(column=1, row=4, padx=10, pady=10, sticky=W)
+273     entry\_nb\_rtmu.grid(column=1, row=5, padx=10, pady=10, sticky=W)
+274 
+275 \textcolor{comment}{#------------------------------------------------------------}
+276 
+277     label\_omc\_ip.grid(column=0, row=0, sticky=N)
+278     label\_omu1\_ip.grid(column=0, row=0, sticky=N)
+279     label\_omu2\_ip.grid(column=0, row=0, sticky=N)
+280 
+281     label\_omc\_user.grid(column=1, row=0, sticky=N)
+282     label\_omu1\_user.grid(column=1, row=0, sticky=N)
+283     label\_omu2\_user.grid(column=1, row=0, sticky=N)
+284 
+285     label\_omc\_password.grid(column=2, row=0, sticky=N)
+286     label\_omu1\_password.grid(column=2, row=0, sticky=N)
+287     label\_omu2\_password.grid(column=2, row=0, sticky=N)
+288 
+289     omc\_ip.grid(column=0, row=1,padx=5, sticky=W)
+290     omu1\_ip.grid(column=0, row=1,padx=5, sticky=W)
+291     omu2\_ip.grid(column=0, row=1,padx=5, sticky=W)
+292 
+293     omc\_user.grid(column=1, row=1,padx=5, sticky=W)
+294     omu1\_user.grid(column=1, row=1,padx=5, sticky=W)
+295     omu2\_user.grid(column=1, row=1,padx=5, sticky=W)
+296 
+297     omc\_password.grid(column=2, row=1,padx=5, sticky=W)
+298     omu1\_password.grid(column=2, row=1,padx=5, sticky=W)
+299     omu2\_password.grid(column=2, row=1,padx=5, sticky=W)
+300 
+301 
+302 
+303 
+304 \textcolor{stringliteral}{"""}
+305 \textcolor{stringliteral}{ce bouton permet de lancer l'execution du programme }
+306 \textcolor{stringliteral}{"""}
+\end{DoxyCode}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceScript_1_1interfaceFrame_a3538cb8357b74776a380240ed3221bc0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_a76119121c3aceb43846ba3ea526623ad}\label{namespaceScript_1_1interfaceFrame_a76119121c3aceb43846ba3ea526623ad}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!Scan\+\_\+com@{Scan\+\_\+com}}
+\index{Scan\+\_\+com@{Scan\+\_\+com}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{Scan\+\_\+com()}{Scan\_com()}}
+{\footnotesize\ttfamily def Script.\+interface\+Frame.\+Scan\+\_\+com (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 317 du fichier interface\+Frame.\+py.
+
+
+
+Référencé par Script.\+interface\+Frame.\+Frame\+\_\+select\+\_\+com().
+
+
+\begin{DoxyCode}
+317 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1interfaceFrame_a76119121c3aceb43846ba3ea526623ad}{Scan\_com}():
+318     available=[]
+319     \textcolor{keywordflow}{try}:
+320         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(256):
+321             \textcolor{keywordflow}{try}:
+322                 ser = serial.Serial(i)
+323                 available.append(str(ser.portstr))
+324                 ser.close
+325             \textcolor{keywordflow}{except} serial.SerialException:
+326                 \textcolor{keywordflow}{pass}
+327         \textcolor{keywordflow}{return} available
+328     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:
+329         print(\textcolor{stringliteral}{"In file Interface; ligne 247"})
+330         print(e)
+331 
+332 \textcolor{comment}{# cette Fonction verifie que tous les arguments}
+333 \textcolor{comment}{# elle verifie que tous les information nécessaire sont siasie }
+334 \textcolor{comment}{# cela permet d'eviter des bugs ou errors}
+\end{DoxyCode}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceScript_1_1interfaceFrame_a76119121c3aceb43846ba3ea526623ad_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_ab554e77db5080fb2eae78e39ebbeb395}\label{namespaceScript_1_1interfaceFrame_ab554e77db5080fb2eae78e39ebbeb395}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!split\+\_\+chaine@{split\+\_\+chaine}}
+\index{split\+\_\+chaine@{split\+\_\+chaine}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{split\+\_\+chaine()}{split\_chaine()}}
+{\footnotesize\ttfamily def Script.\+interface\+Frame.\+split\+\_\+chaine (\begin{DoxyParamCaption}\item[{}]{chaine,  }\item[{}]{caractere }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 429 du fichier interface\+Frame.\+py.
+
+
+\begin{DoxyCode}
+429 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1interfaceFrame_ab554e77db5080fb2eae78e39ebbeb395}{split\_chaine}(chaine, caractere):
+430     carac\_chaine=[\textcolor{stringliteral}{"["},\textcolor{stringliteral}{"]"}, \textcolor{stringliteral}{"\(\backslash\)n"}, \textcolor{stringliteral}{"\(\backslash\)r"}]
+431     new\_chaine=\textcolor{stringliteral}{""}
+432     \textcolor{keywordflow}{try}:
+433         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} chaine:
+434             i=0
+435             \textcolor{keywordflow}{while} i < len(line):
+436                 \textcolor{keywordflow}{if} line[i] \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} carac\_chaine:
+437                     new\_chaine=new\_chaine+line[i]
+438                 i+=1
+439             \textcolor{stringliteral}{"""}
+440 \textcolor{stringliteral}{            adding character tosepare the elements of the character string}
+441 \textcolor{stringliteral}{            """}
+442             new\_chaine+=caractere
+443 
+444         \textcolor{keywordflow}{return} new\_chaine
+445     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:
+446         print(\textcolor{stringliteral}{"In file Interface; ligne 346"})
+447         print(e)
+448         \textcolor{keywordflow}{return} \textcolor{keywordtype}{None} 
+449 \end{DoxyCode}
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_a7a90dd83e0b67edcf2dee870d927e98e}\label{namespaceScript_1_1interfaceFrame_a7a90dd83e0b67edcf2dee870d927e98e}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!verif\+\_\+args@{verif\+\_\+args}}
+\index{verif\+\_\+args@{verif\+\_\+args}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{verif\+\_\+args()}{verif\_args()}}
+{\footnotesize\ttfamily def Script.\+interface\+Frame.\+verif\+\_\+args (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 335 du fichier interface\+Frame.\+py.
+
+
+
+Référencé par Script.\+interface\+Frame.\+Frame\+\_\+btn\+\_\+execution().
+
+
+\begin{DoxyCode}
+335 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1interfaceFrame_a7a90dd83e0b67edcf2dee870d927e98e}{verif\_args}():
+336     \textcolor{keyword}{global} VALUE\_BOX\_COM1 
+337     \textcolor{keyword}{global} VALUE\_BOX\_COM2
+338     
+339     \textcolor{keyword}{global} VALUE\_SELECT\_CALL\_OPTION
+340     \textcolor{keyword}{global} VALUE\_SELECT\_CALL\_CONFIG
+341     
+342     \textcolor{keyword}{global} VALUE\_ENTRY\_PHONE\_NUMERO
+343     \textcolor{keyword}{global} VALUE\_ENTRY\_ATCBST
+344 
+345     \textcolor{keyword}{global} VALUE\_ENTRY\_OMC\_IP
+346     \textcolor{keyword}{global} VALUE\_ENTRY\_OMC\_PASSWORD
+347     \textcolor{keyword}{global} VALUE\_ENTRY\_OMC\_USER
+348 
+349     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU1\_IP
+350     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU1\_PASSWORD
+351     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU1\_USER
+352 
+353     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU2\_IP
+354     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU2\_PASSWORD
+355     \textcolor{keyword}{global} VALUE\_ENTRY\_OMU2\_USER
+356 
+357     msg\_error= 1
+358 
+359     tmu\_mode= \textcolor{keyword}{False}
+360     simple\_mode= \textcolor{keyword}{False}
+361     ptp\_mode= \textcolor{keyword}{False}
+362     data\_mode= \textcolor{keyword}{False}
+363     vgcs\_mode= \textcolor{keyword}{False}
+364     rec\_mode= \textcolor{keyword}{False}
+365     vbs\_mode= \textcolor{keyword}{False}
+366 
+367     \textcolor{comment}{# On veirifie que les entrés sont bien présent}
+368     \textcolor{comment}{# On verifie l'existance des tous les chanmps obligatoire}
+369     \textcolor{comment}{# ensuite on essaye de savoir les options utilisé par l'utilisateur}
+370     \textcolor{keywordflow}{if} (len(VALUE\_ENTRY\_OMC\_IP.get()) > 0) \textcolor{keywordflow}{and} (len(VALUE\_ENTRY\_OMC\_USER.get()) > 0) \textcolor{keywordflow}{and} (len(
+      VALUE\_ENTRY\_OMC\_PASSWORD.get()) > 0) \textcolor{keywordflow}{and}\(\backslash\)
+371     (len(VALUE\_ENTRY\_OMU1\_IP.get()) > 0) \textcolor{keywordflow}{and} (len(VALUE\_ENTRY\_OMU1\_USER.get()) > 0) \textcolor{keywordflow}{and} (len(
+      VALUE\_ENTRY\_OMU1\_PASSWORD.get()) > 0) \textcolor{keywordflow}{and} \(\backslash\)
+372     (len(VALUE\_ENTRY\_OMU2\_IP.get()) > 0) \textcolor{keywordflow}{and} (len(VALUE\_ENTRY\_OMU2\_USER.get()) > 0) \textcolor{keywordflow}{and} (len(
+      VALUE\_ENTRY\_OMU2\_PASSWORD.get()) > 0) \textcolor{keywordflow}{and} \(\backslash\)
+373     (len(VALUE\_BOX\_COM1.get()) > 0) \textcolor{keywordflow}{and} (VALUE\_BOX\_COM1.get()  != VALUE\_BOX\_COM2.get()) \textcolor{keywordflow}{and} (len(
+      VALUE\_ENTRY\_PHONE\_NUMERO.get()) > 0) \textcolor{keywordflow}{and} \(\backslash\)
+374     (len(VALUE\_ENTRY\_GROUP\_ID.get()) > 0) \textcolor{keywordflow}{and} (len(VALUE\_ENTRY\_ATCBST.get()) > 0) \textcolor{keywordflow}{and} (len(
+      VALUE\_ENTRY\_NB\_RTMU.get()) > 0):
+375         
+376         \textcolor{comment}{# lacette Boucle permet de savoir la configuration choisi par l'utilisateur}
+377         \textcolor{comment}{# On  deux type de configuration SIMPLe pour un handOver simple ou RESET-TMU pour reseter le TMU}
+378         \textcolor{keywordflow}{for} cle \textcolor{keywordflow}{in} VALUE\_SELECT\_CALL\_CONFIG:
+379             \textcolor{keywordflow}{if} VALUE\_SELECT\_CALL\_CONFIG[cle].get() == 1:
+380                 \textcolor{keywordflow}{if} cle == \textcolor{stringliteral}{"SIMPLE"}:
+381                     simple\_mode= \textcolor{keyword}{True}
+382                     set\_config= \textcolor{keyword}{True}
+383                 \textcolor{keywordflow}{elif} cle == \textcolor{stringliteral}{"RESET-TMU"}:
+384                     tmu\_mode= \textcolor{keyword}{True}
+385                     set\_config= \textcolor{keyword}{True}
+386                 \textcolor{keywordflow}{else}:
+387                     set\_config= \textcolor{keyword}{False}
+388                     print(\textcolor{stringliteral}{"Veuillez remplir tous les champs"})
+389 
+390         \textcolor{comment}{# Ici chercher à savoir les types d'appel choisi par l'utilisateur}
+391         \textcolor{comment}{# ce types peut PTP pour l'appel voix}
+392         \textcolor{comment}{# DATA pour appel data}
+393         \textcolor{comment}{# VGCS VBS et REC font parties de la famille de groupe call ensuite on fait appel a la classe
+       handOver pour en lui donnant les paramètre}
+394         \textcolor{keywordflow}{for} cle \textcolor{keywordflow}{in} VALUE\_SELECT\_CALL\_OPTION:
+395             \textcolor{keywordflow}{if} VALUE\_SELECT\_CALL\_OPTION[cle].get() == 1:
+396                 \textcolor{keywordflow}{if} cle == \textcolor{stringliteral}{"PTP"}:
+397                     ptp\_mode= \textcolor{keyword}{True}
+398                     set\_call\_option= \textcolor{keyword}{True}
+399                 \textcolor{keywordflow}{elif} cle == \textcolor{stringliteral}{"DATA"}:
+400                     data\_mode = \textcolor{keyword}{True}
+401                     set\_call\_option= \textcolor{keyword}{True}
+402                 \textcolor{keywordflow}{elif} cle == \textcolor{stringliteral}{"VGCS"}:
+403                     vgcs\_mode= \textcolor{keyword}{True}
+404                     set\_call\_option= \textcolor{keyword}{True}
+405                 \textcolor{keywordflow}{elif} cle == \textcolor{stringliteral}{"REC"}:
+406                     rec\_mode= \textcolor{keyword}{True}
+407                     set\_call\_option= \textcolor{keyword}{True}
+408                 \textcolor{keywordflow}{elif} cle == \textcolor{stringliteral}{"VBS"}:
+409                     vbs\_mode= \textcolor{keyword}{True}
+410                     set\_call\_option= \textcolor{keyword}{True}
+411                 \textcolor{keywordflow}{else}:
+412                     set\_call\_option= \textcolor{keyword}{False}
+413                     print(\textcolor{stringliteral}{"Veuillez remplir tous les champs"})
+414         
+415         \textcolor{keywordflow}{if} (set\_call\_option== \textcolor{keyword}{False}) \textcolor{keywordflow}{or} (set\_config== \textcolor{keyword}{False}):
+416             print(\textcolor{stringliteral}{"Veuillez remplir tous les champs"})
+417         \textcolor{keywordflow}{else}:
+418             \textcolor{comment}{# On fait appel de la classe begin\_handOver une fois que l'utilisateur clic sur le bouton
+       d'exécuter}
+419             handOver.begin\_handOver(simple\_mode, tmu\_mode, ptp\_mode, data\_mode, vgcs\_mode, rec\_mode, 
+      vbs\_mode)
+420     \textcolor{keywordflow}{else}:
+421         print(\textcolor{stringliteral}{"Veuillez remplir tous les champs"})
+422 
+423 
+424 
+425 \textcolor{comment}{# Cette fonction de supprimer des caractère speciaux lorqu'on fait un read du mobile}
+426 \textcolor{comment}{# Cela permet de mieux veirifier que les information retourner par le mobile}
+427 \textcolor{comment}{# Ca aide le programme à mieux prendre les decision }
+428 
+\end{DoxyCode}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceScript_1_1interfaceFrame_a7a90dd83e0b67edcf2dee870d927e98e_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des variables}
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_ab8e385a4d6a1f87628b963bc0a385519}\label{namespaceScript_1_1interfaceFrame_ab8e385a4d6a1f87628b963bc0a385519}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!begin\+\_\+time@{begin\+\_\+time}}
+\index{begin\+\_\+time@{begin\+\_\+time}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{begin\+\_\+time}{begin\_time}}
+{\footnotesize\ttfamily Script.\+interface\+Frame.\+begin\+\_\+time = time.\+time()}
+
+
+
+Définition à la ligne 43 du fichier interface\+Frame.\+py.
+
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_ace1207561541cc3ee3af9b2f33b2a316}\label{namespaceScript_1_1interfaceFrame_ace1207561541cc3ee3af9b2f33b2a316}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!val\+\_\+line@{val\+\_\+line}}
+\index{val\+\_\+line@{val\+\_\+line}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{val\+\_\+line}{val\_line}}
+{\footnotesize\ttfamily int Script.\+interface\+Frame.\+val\+\_\+line = 0}
+
+
+
+Définition à la ligne 45 du fichier interface\+Frame.\+py.
+
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_a235ac21d18cefa672100db29db0ed490}\label{namespaceScript_1_1interfaceFrame_a235ac21d18cefa672100db29db0ed490}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+A\+U\+D\+IO@{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+A\+U\+D\+IO}}
+\index{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+A\+U\+D\+IO@{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+A\+U\+D\+IO}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+A\+U\+D\+IO}{VALUE\_FILE\_AUDIO}}
+{\footnotesize\ttfamily string Script.\+interface\+Frame.\+V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+A\+U\+D\+IO = \char`\"{}\char`\"{}}
+
+
+
+Définition à la ligne 49 du fichier interface\+Frame.\+py.
+
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_a3704b57444e587c904b839d2dfef2b7e}\label{namespaceScript_1_1interfaceFrame_a3704b57444e587c904b839d2dfef2b7e}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+MD@{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+MD}}
+\index{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+MD@{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+MD}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+MD}{VALUE\_FILE\_CMD}}
+{\footnotesize\ttfamily string Script.\+interface\+Frame.\+V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+MD = \char`\"{}\char`\"{}}
+
+
+
+Définition à la ligne 47 du fichier interface\+Frame.\+py.
+
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_a2cfacdb24b52e8cf5d9667d91a5c58ab}\label{namespaceScript_1_1interfaceFrame_a2cfacdb24b52e8cf5d9667d91a5c58ab}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+O\+NF@{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+O\+NF}}
+\index{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+O\+NF@{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+O\+NF}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+O\+NF}{VALUE\_FILE\_CONF}}
+{\footnotesize\ttfamily string Script.\+interface\+Frame.\+V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+C\+O\+NF = \char`\"{}\char`\"{}}
+
+
+
+Définition à la ligne 46 du fichier interface\+Frame.\+py.
+
+\mbox{\Hypertarget{namespaceScript_1_1interfaceFrame_a8933d662775f7e5fc3e0b8e5fb499b24}\label{namespaceScript_1_1interfaceFrame_a8933d662775f7e5fc3e0b8e5fb499b24}} 
+\index{Script\+::interface\+Frame@{Script\+::interface\+Frame}!V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+S\+A\+VE@{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+S\+A\+VE}}
+\index{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+S\+A\+VE@{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+S\+A\+VE}!Script\+::interface\+Frame@{Script\+::interface\+Frame}}
+\subsubsection{\texorpdfstring{V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+S\+A\+VE}{VALUE\_FILE\_SAVE}}
+{\footnotesize\ttfamily string Script.\+interface\+Frame.\+V\+A\+L\+U\+E\+\_\+\+F\+I\+L\+E\+\_\+\+S\+A\+VE = \char`\"{}\char`\"{}}
+
+
+
+Définition à la ligne 48 du fichier interface\+Frame.\+py.
+

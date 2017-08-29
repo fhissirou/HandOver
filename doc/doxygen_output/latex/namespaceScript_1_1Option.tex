@@ -1,0 +1,242 @@
+\hypertarget{namespaceScript_1_1Option}{}\section{Référence de l\textquotesingle{}espace de nommage Script.\+Option}
+\label{namespaceScript_1_1Option}\index{Script.\+Option@{Script.\+Option}}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceScript_1_1Option_abb674ebac6565861fc8240a9306f8ecd}{callback\+\_\+quit} ()
+\item 
+def \hyperlink{namespaceScript_1_1Option_aff91639f98fde0463987ea08e565da05}{progress\+\_\+\+Bar} ()
+\item 
+def \hyperlink{namespaceScript_1_1Option_a09506d9cf0343fc80883c5db0a207737}{save\+\_\+\+Data} (my\+\_\+object)
+\item 
+def \hyperlink{namespaceScript_1_1Option_ac71533bc42f23543f3c564ccf01d9faf}{split\+\_\+chaine} (chaine, caractere)
+\item 
+def \hyperlink{namespaceScript_1_1Option_a1707d1e8b288159100845df330fc8d51}{limit\+\_\+waiting} ()
+\item 
+def \hyperlink{namespaceScript_1_1Option_a22c03fd81ddb28ef13f194565b4996ba}{hang\+\_\+up\+\_\+call} (phone)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{namespaceScript_1_1Option_abb674ebac6565861fc8240a9306f8ecd}\label{namespaceScript_1_1Option_abb674ebac6565861fc8240a9306f8ecd}} 
+\index{Script\+::\+Option@{Script\+::\+Option}!callback\+\_\+quit@{callback\+\_\+quit}}
+\index{callback\+\_\+quit@{callback\+\_\+quit}!Script\+::\+Option@{Script\+::\+Option}}
+\subsubsection{\texorpdfstring{callback\+\_\+quit()}{callback\_quit()}}
+{\footnotesize\ttfamily def Script.\+Option.\+callback\+\_\+quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 20 du fichier Option.\+py.
+
+
+
+Référencé par Script.\+Option.\+progress\+\_\+\+Bar().
+
+
+\begin{DoxyCode}
+20 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1Option_abb674ebac6565861fc8240a9306f8ecd}{callback\_quit}():
+21     \textcolor{keyword}{global} RUNNING
+22     \textcolor{keywordflow}{if} tkMessageBox.askokcancel(\textcolor{stringliteral}{"Quitter"}, \textcolor{stringliteral}{"êtes-vous sûr de vouloir quitter?"}):
+23         toplevel.destroy()
+24         RUNNING= \textcolor{keyword}{False}
+25 
+26 \textcolor{stringliteral}{"""}
+27 \textcolor{stringliteral}{Comme son indique progress\_Bar est une barre de progression en mode de dure indertiminé. }
+28 \textcolor{stringliteral}{Elle s'execute au premier plan et masqué la fenetre principale pour empêcher toute motidification possible}
+29 \textcolor{stringliteral}{"""}
+\end{DoxyCode}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceScript_1_1Option_abb674ebac6565861fc8240a9306f8ecd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceScript_1_1Option_a22c03fd81ddb28ef13f194565b4996ba}\label{namespaceScript_1_1Option_a22c03fd81ddb28ef13f194565b4996ba}} 
+\index{Script\+::\+Option@{Script\+::\+Option}!hang\+\_\+up\+\_\+call@{hang\+\_\+up\+\_\+call}}
+\index{hang\+\_\+up\+\_\+call@{hang\+\_\+up\+\_\+call}!Script\+::\+Option@{Script\+::\+Option}}
+\subsubsection{\texorpdfstring{hang\+\_\+up\+\_\+call()}{hang\_up\_call()}}
+{\footnotesize\ttfamily def Script.\+Option.\+hang\+\_\+up\+\_\+call (\begin{DoxyParamCaption}\item[{}]{phone }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 106 du fichier Option.\+py.
+
+
+
+Référencé par Script.\+Option.\+limit\+\_\+waiting().
+
+
+\begin{DoxyCode}
+106 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1Option_a22c03fd81ddb28ef13f194565b4996ba}{hang\_up\_call}(phone):
+107     \textcolor{comment}{#phone.write("\(\backslash\)r")}
+108     time.sleep(1)
+109     phone.write(b\textcolor{stringliteral}{"+"})
+110     phone.write(b\textcolor{stringliteral}{"+"})
+111     phone.write(b\textcolor{stringliteral}{"+"})
+112     time.sleep(2)
+113     phone.write(\textcolor{stringliteral}{"\(\backslash\)r"})
+114     time.sleep(2)
+115     phone.write(b\textcolor{stringliteral}{"ath\(\backslash\)r"})
+116     time.sleep(3)
+117     print(\textcolor{stringliteral}{"++ath"})
+118     phone.readlines()
+119 \end{DoxyCode}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{namespaceScript_1_1Option_a22c03fd81ddb28ef13f194565b4996ba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceScript_1_1Option_a1707d1e8b288159100845df330fc8d51}\label{namespaceScript_1_1Option_a1707d1e8b288159100845df330fc8d51}} 
+\index{Script\+::\+Option@{Script\+::\+Option}!limit\+\_\+waiting@{limit\+\_\+waiting}}
+\index{limit\+\_\+waiting@{limit\+\_\+waiting}!Script\+::\+Option@{Script\+::\+Option}}
+\subsubsection{\texorpdfstring{limit\+\_\+waiting()}{limit\_waiting()}}
+{\footnotesize\ttfamily def Script.\+Option.\+limit\+\_\+waiting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 83 du fichier Option.\+py.
+
+
+
+Références Script.\+Option.\+hang\+\_\+up\+\_\+call().
+
+
+\begin{DoxyCode}
+83 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1Option_a1707d1e8b288159100845df330fc8d51}{limit\_waiting}():
+84     \textcolor{keyword}{global} RUNNING
+85     \textcolor{keyword}{global} signal\_limit\_waiting
+86     \textcolor{keyword}{global} val\_continue
+87     \textcolor{keyword}{global} phone\_com1
+88     \textcolor{keyword}{global} val\_stage
+89 
+90     signal\_limit\_waiting= \textcolor{keyword}{False}
+91     val\_stage= 0
+92 
+93     \textcolor{keywordflow}{while} RUNNING == \textcolor{keyword}{True}:
+94         \textcolor{keywordflow}{if} signal\_limit\_waiting == \textcolor{keyword}{True}:
+95             stage= val\_stage
+96             val\_continue= \textcolor{keyword}{True}
+97             time.sleep(90)
+98             \textcolor{keywordflow}{if} val\_continue == \textcolor{keyword}{True} \textcolor{keywordflow}{and} stage== val\_stage:
+99                 \hyperlink{namespaceScript_1_1Option_a22c03fd81ddb28ef13f194565b4996ba}{hang\_up\_call}(phone\_com1)
+100 
+101 
+102 
+103 \textcolor{stringliteral}{"""}
+104 \textcolor{stringliteral}{hang\_up\_call est la fonction qui permet de racrocher un appel DATA}
+105 \textcolor{stringliteral}{"""}
+\end{DoxyCode}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{namespaceScript_1_1Option_a1707d1e8b288159100845df330fc8d51_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceScript_1_1Option_aff91639f98fde0463987ea08e565da05}\label{namespaceScript_1_1Option_aff91639f98fde0463987ea08e565da05}} 
+\index{Script\+::\+Option@{Script\+::\+Option}!progress\+\_\+\+Bar@{progress\+\_\+\+Bar}}
+\index{progress\+\_\+\+Bar@{progress\+\_\+\+Bar}!Script\+::\+Option@{Script\+::\+Option}}
+\subsubsection{\texorpdfstring{progress\+\_\+\+Bar()}{progress\_Bar()}}
+{\footnotesize\ttfamily def Script.\+Option.\+progress\+\_\+\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 30 du fichier Option.\+py.
+
+
+
+Références Script.\+Option.\+callback\+\_\+quit().
+
+
+\begin{DoxyCode}
+30 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1Option_aff91639f98fde0463987ea08e565da05}{progress\_Bar}():
+31     \textcolor{keyword}{global} RUNNING
+32     \textcolor{keyword}{global} toplevel
+33     \textcolor{keywordflow}{try}:
+34         RUNNING= \textcolor{keyword}{True}
+35         toplevel= Toplevel()
+36         toplevel.progress = ttk.Progressbar(toplevel, orient=\textcolor{stringliteral}{"horizontal"},length=380, mode=\textcolor{stringliteral}{"indeterminate"})
+      
+37         toplevel.progress.pack()
+38         thread = threading.Thread()
+39         thread.\_\_init\_\_(target=toplevel.progress.start(), args=())
+40         thread.start
+41         toplevel.grab\_set()
+42         toplevel.focus\_set()
+43         toplevel.focus\_force
+44 
+45         \textcolor{stringliteral}{"""}
+46 \textcolor{stringliteral}{        On detecte si l'utisateur clic sur le bouton fermer,}
+47 \textcolor{stringliteral}{        alors on appelle la fonction callback\_quit pour confirmer le choix }
+48 \textcolor{stringliteral}{        """}
+49         toplevel.protocol(\textcolor{stringliteral}{"WM\_DELETE\_WINDOW"}, \textcolor{keyword}{lambda}:\hyperlink{namespaceScript_1_1Option_abb674ebac6565861fc8240a9306f8ecd}{callback\_quit}())
+50     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:
+51         print(\textcolor{stringliteral}{"in file Option, progressbar"})
+52         print(e)
+53         RUNNING = \textcolor{keyword}{False}
+54     
+55 
+56 
+57 \textcolor{stringliteral}{"""}
+58 \textcolor{stringliteral}{La fonction permet d'enregistre les donneés dans le fichier de rapport choisi par l'utilisateur }
+59 \textcolor{stringliteral}{elle est utilisé dans le cas si l'utilisateur choisi l'option NR\_DATA}
+60 \textcolor{stringliteral}{"""}
+\end{DoxyCode}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceScript_1_1Option_aff91639f98fde0463987ea08e565da05_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceScript_1_1Option_a09506d9cf0343fc80883c5db0a207737}\label{namespaceScript_1_1Option_a09506d9cf0343fc80883c5db0a207737}} 
+\index{Script\+::\+Option@{Script\+::\+Option}!save\+\_\+\+Data@{save\+\_\+\+Data}}
+\index{save\+\_\+\+Data@{save\+\_\+\+Data}!Script\+::\+Option@{Script\+::\+Option}}
+\subsubsection{\texorpdfstring{save\+\_\+\+Data()}{save\_Data()}}
+{\footnotesize\ttfamily def Script.\+Option.\+save\+\_\+\+Data (\begin{DoxyParamCaption}\item[{}]{my\+\_\+object }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 61 du fichier Option.\+py.
+
+
+\begin{DoxyCode}
+61 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1Option_a09506d9cf0343fc80883c5db0a207737}{save\_Data}(my\_object):
+62     with open(interfaceFrame.VALUE\_FILE\_SAVE, \textcolor{stringliteral}{"a"}) \textcolor{keyword}{as} fichier:  
+63         fichier.write(my\_object)
+64         fichier.closed
+65 
+66 \textcolor{stringliteral}{"""}
+67 \textcolor{stringliteral}{elle convertit la liste chaine en string et ajoute caractere a chaque tour de la boucle}
+68 \textcolor{stringliteral}{"""}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceScript_1_1Option_ac71533bc42f23543f3c564ccf01d9faf}\label{namespaceScript_1_1Option_ac71533bc42f23543f3c564ccf01d9faf}} 
+\index{Script\+::\+Option@{Script\+::\+Option}!split\+\_\+chaine@{split\+\_\+chaine}}
+\index{split\+\_\+chaine@{split\+\_\+chaine}!Script\+::\+Option@{Script\+::\+Option}}
+\subsubsection{\texorpdfstring{split\+\_\+chaine()}{split\_chaine()}}
+{\footnotesize\ttfamily def Script.\+Option.\+split\+\_\+chaine (\begin{DoxyParamCaption}\item[{}]{chaine,  }\item[{}]{caractere }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 69 du fichier Option.\+py.
+
+
+\begin{DoxyCode}
+69 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1Option_ac71533bc42f23543f3c564ccf01d9faf}{split\_chaine}(chaine, caractere):
+70     carac\_chaine=[\textcolor{stringliteral}{"["},\textcolor{stringliteral}{"]"}, \textcolor{stringliteral}{"\(\backslash\)n"}, \textcolor{stringliteral}{"\(\backslash\)r"}]
+71     new\_chaine=\textcolor{stringliteral}{""}
+72     \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} chaine:
+73         i=0
+74         \textcolor{keywordflow}{while} i < len(line):
+75             \textcolor{keywordflow}{if} line[i] \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} carac\_chaine:
+76                 new\_chaine=new\_chaine+line[i]
+77             i+=1
+78         new\_chaine+=caractere
+79 
+80     \textcolor{keywordflow}{return} new\_chaine
+81 
+82 
+\end{DoxyCode}

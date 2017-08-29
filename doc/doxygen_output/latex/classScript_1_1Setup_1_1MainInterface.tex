@@ -1,0 +1,235 @@
+\hypertarget{classScript_1_1Setup_1_1MainInterface}{}\section{Référence de la classe Script.\+Setup.\+Main\+Interface}
+\label{classScript_1_1Setup_1_1MainInterface}\index{Script.\+Setup.\+Main\+Interface@{Script.\+Setup.\+Main\+Interface}}
+
+
+Graphe d\textquotesingle{}héritage de Script.\+Setup.\+Main\+Interface\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{classScript_1_1Setup_1_1MainInterface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Script.\+Setup.\+Main\+Interface\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{classScript_1_1Setup_1_1MainInterface__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classScript_1_1Setup_1_1MainInterface_a342ef881ed8e49715e8e071026290d33}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, parent, kwargs)
+\item 
+def \hyperlink{classScript_1_1Setup_1_1MainInterface_aaa122e78c353c8b0014b07ff944d7818}{Init\+\_\+all\+\_\+frame} (self)
+\item 
+def \hyperlink{classScript_1_1Setup_1_1MainInterface_a92190b04a1cf9aa5497439f2dd6dcd99}{poll} (self)
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classScript_1_1Setup_1_1MainInterface_a9436309be16e61a1527bdb8a62514de4}{root}
+\item 
+\hyperlink{classScript_1_1Setup_1_1MainInterface_a55c2c685b44f6ece1c4a9ea1eb8db30c}{select}
+\item 
+\hyperlink{classScript_1_1Setup_1_1MainInterface_a8ad532a968e6ccc0a5a1141d89b0bc79}{Frame1}
+\item 
+\hyperlink{classScript_1_1Setup_1_1MainInterface_a5e740f301b7cb8dd3fb145b6d0dc4af2}{Frame2}
+\item 
+\hyperlink{classScript_1_1Setup_1_1MainInterface_ab2dbe8bd2ef4977361a1a77c67648d3f}{Frame3}
+\item 
+\hyperlink{classScript_1_1Setup_1_1MainInterface_adbe875b37eb9ba01b2c84867dea6e526}{Frame4}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 18 du fichier Setup.\+py.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classScript_1_1Setup_1_1MainInterface_a342ef881ed8e49715e8e071026290d33}\label{classScript_1_1Setup_1_1MainInterface_a342ef881ed8e49715e8e071026290d33}} 
+\index{Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Script.\+Setup.\+Main\+Interface.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{parent,  }\item[{}]{kwargs }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 19 du fichier Setup.\+py.
+
+
+\begin{DoxyCode}
+19     \textcolor{keyword}{def }\_\_init\_\_(self, parent, **kwargs):
+20 
+21         self.root = parent
+22         self.root.title(\textcolor{stringliteral}{"Main frame"})
+23         self.root.geometry=(\textcolor{stringliteral}{"320x240"})
+24         Frame.\_\_init\_\_(self, parent, width=320, height=240, **kwargs)
+25         self.pack(fill=BOTH)
+26 
+27         self.select= IntVar()
+28         self.Init\_all\_frame()
+29         \textcolor{comment}{#self.poll()}
+30         thread = threading.Thread(target=self.poll)
+31         thread.daemon= \textcolor{keyword}{True}
+32         thread.start()
+33     
+\end{DoxyCode}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classScript_1_1Setup_1_1MainInterface_aaa122e78c353c8b0014b07ff944d7818}\label{classScript_1_1Setup_1_1MainInterface_aaa122e78c353c8b0014b07ff944d7818}} 
+\index{Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}!Init\+\_\+all\+\_\+frame@{Init\+\_\+all\+\_\+frame}}
+\index{Init\+\_\+all\+\_\+frame@{Init\+\_\+all\+\_\+frame}!Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{Init\+\_\+all\+\_\+frame()}{Init\_all\_frame()}}
+{\footnotesize\ttfamily def Script.\+Setup.\+Main\+Interface.\+Init\+\_\+all\+\_\+frame (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 34 du fichier Setup.\+py.
+
+
+\begin{DoxyCode}
+34     \textcolor{keyword}{def }Init\_all\_frame(self):
+35         self.Frame1= Frame(self, width = self.winfo\_width())
+36         self.Frame1.grid(column=0,row=0)
+37         \textcolor{comment}{#self.Frame1.pack(side=TOP, padx=5, pady=5)}
+38 
+39         self.Frame2= Frame(self, width = self.winfo\_width())
+40         \textcolor{comment}{#self.Frame2.pack(side=TOP, padx=5, pady=5)}
+41         self.Frame2.grid(column=0,row=1)
+42         
+43         self.Frame3= Frame(self, width = self.winfo\_width())
+44         \textcolor{comment}{#self.Frame3.pack(side=TOP, padx=5, pady=5)}
+45         self.Frame3.grid(column=0,row=2)
+46         
+47         self.Frame4= Frame(self, width = self.winfo\_width())
+48         \textcolor{comment}{#self.Frame4.pack(side=TOP, padx=5, pady=5)}
+49         self.Frame4.grid(column=0,row=3)
+50         \textcolor{comment}{#self.Frame5= Frame(self)}
+51         \textcolor{comment}{#self.Frame5.pack(side=TOP, padx=5, pady=5)}
+52 
+53         interfaceFrame.Frame\_init\_option(self.Frame1, self.Frame2, self.Frame3)
+54         interfaceFrame.Frame\_select\_com(self.Frame2, \textcolor{stringliteral}{"PTP"})
+55         \textcolor{comment}{#interfaceFrame.Frame\_select\_file(self.Frame3, 1)}
+56         interfaceFrame.Frame\_btn\_execution(self.Frame4)
+57 
+58         \textcolor{comment}{#interfaceFrame.Frame\_resultat(self.Frame5)}
+59 
+\end{DoxyCode}
+\mbox{\Hypertarget{classScript_1_1Setup_1_1MainInterface_a92190b04a1cf9aa5497439f2dd6dcd99}\label{classScript_1_1Setup_1_1MainInterface_a92190b04a1cf9aa5497439f2dd6dcd99}} 
+\index{Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}!poll@{poll}}
+\index{poll@{poll}!Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{poll()}{poll()}}
+{\footnotesize\ttfamily def Script.\+Setup.\+Main\+Interface.\+poll (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 60 du fichier Setup.\+py.
+
+
+
+Références Script.\+Setup.\+Main\+Interface.\+poll(), et Script.\+Setup.\+Main\+Interface.\+root.
+
+
+
+Référencé par Script.\+Setup.\+Main\+Interface.\+poll().
+
+
+\begin{DoxyCode}
+60     \textcolor{keyword}{def }poll(self):
+61         self.root.after(100,self.poll)
+62 
+63 
+\end{DoxyCode}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classScript_1_1Setup_1_1MainInterface_a92190b04a1cf9aa5497439f2dd6dcd99_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classScript_1_1Setup_1_1MainInterface_a92190b04a1cf9aa5497439f2dd6dcd99_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classScript_1_1Setup_1_1MainInterface_a8ad532a968e6ccc0a5a1141d89b0bc79}\label{classScript_1_1Setup_1_1MainInterface_a8ad532a968e6ccc0a5a1141d89b0bc79}} 
+\index{Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}!Frame1@{Frame1}}
+\index{Frame1@{Frame1}!Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{Frame1}{Frame1}}
+{\footnotesize\ttfamily Script.\+Setup.\+Main\+Interface.\+Frame1}
+
+
+
+Définition à la ligne 35 du fichier Setup.\+py.
+
+\mbox{\Hypertarget{classScript_1_1Setup_1_1MainInterface_a5e740f301b7cb8dd3fb145b6d0dc4af2}\label{classScript_1_1Setup_1_1MainInterface_a5e740f301b7cb8dd3fb145b6d0dc4af2}} 
+\index{Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}!Frame2@{Frame2}}
+\index{Frame2@{Frame2}!Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{Frame2}{Frame2}}
+{\footnotesize\ttfamily Script.\+Setup.\+Main\+Interface.\+Frame2}
+
+
+
+Définition à la ligne 39 du fichier Setup.\+py.
+
+\mbox{\Hypertarget{classScript_1_1Setup_1_1MainInterface_ab2dbe8bd2ef4977361a1a77c67648d3f}\label{classScript_1_1Setup_1_1MainInterface_ab2dbe8bd2ef4977361a1a77c67648d3f}} 
+\index{Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}!Frame3@{Frame3}}
+\index{Frame3@{Frame3}!Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{Frame3}{Frame3}}
+{\footnotesize\ttfamily Script.\+Setup.\+Main\+Interface.\+Frame3}
+
+
+
+Définition à la ligne 43 du fichier Setup.\+py.
+
+\mbox{\Hypertarget{classScript_1_1Setup_1_1MainInterface_adbe875b37eb9ba01b2c84867dea6e526}\label{classScript_1_1Setup_1_1MainInterface_adbe875b37eb9ba01b2c84867dea6e526}} 
+\index{Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}!Frame4@{Frame4}}
+\index{Frame4@{Frame4}!Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{Frame4}{Frame4}}
+{\footnotesize\ttfamily Script.\+Setup.\+Main\+Interface.\+Frame4}
+
+
+
+Définition à la ligne 47 du fichier Setup.\+py.
+
+\mbox{\Hypertarget{classScript_1_1Setup_1_1MainInterface_a9436309be16e61a1527bdb8a62514de4}\label{classScript_1_1Setup_1_1MainInterface_a9436309be16e61a1527bdb8a62514de4}} 
+\index{Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}!root@{root}}
+\index{root@{root}!Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily Script.\+Setup.\+Main\+Interface.\+root}
+
+
+
+Définition à la ligne 21 du fichier Setup.\+py.
+
+
+
+Référencé par Script.\+Setup.\+Main\+Interface.\+poll().
+
+\mbox{\Hypertarget{classScript_1_1Setup_1_1MainInterface_a55c2c685b44f6ece1c4a9ea1eb8db30c}\label{classScript_1_1Setup_1_1MainInterface_a55c2c685b44f6ece1c4a9ea1eb8db30c}} 
+\index{Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}!select@{select}}
+\index{select@{select}!Script\+::\+Setup\+::\+Main\+Interface@{Script\+::\+Setup\+::\+Main\+Interface}}
+\subsubsection{\texorpdfstring{select}{select}}
+{\footnotesize\ttfamily Script.\+Setup.\+Main\+Interface.\+select}
+
+
+
+Définition à la ligne 27 du fichier Setup.\+py.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Setup_8py}{Setup.\+py}\end{DoxyCompactItemize}

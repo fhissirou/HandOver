@@ -1,0 +1,148 @@
+\hypertarget{classScript_1_1handOver_1_1MobileReceives}{}\section{Référence de la classe Script.\+hand\+Over.\+Mobile\+Receives}
+\label{classScript_1_1handOver_1_1MobileReceives}\index{Script.\+hand\+Over.\+Mobile\+Receives@{Script.\+hand\+Over.\+Mobile\+Receives}}
+
+
+Graphe d\textquotesingle{}héritage de Script.\+hand\+Over.\+Mobile\+Receives\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{classScript_1_1handOver_1_1MobileReceives__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Script.\+hand\+Over.\+Mobile\+Receives\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{classScript_1_1handOver_1_1MobileReceives__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classScript_1_1handOver_1_1MobileReceives_abb762c0c475770a14588d7005e1320da}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+def \hyperlink{classScript_1_1handOver_1_1MobileReceives_a340893dfd7b7d84b3282bd0c24044e37}{run} (self)
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classScript_1_1handOver_1_1MobileReceives_abb579ed112e4ce4e91762febd524d789}{phone}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 45 du fichier hand\+Over.\+py.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classScript_1_1handOver_1_1MobileReceives_abb762c0c475770a14588d7005e1320da}\label{classScript_1_1handOver_1_1MobileReceives_abb762c0c475770a14588d7005e1320da}} 
+\index{Script\+::hand\+Over\+::\+Mobile\+Receives@{Script\+::hand\+Over\+::\+Mobile\+Receives}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!Script\+::hand\+Over\+::\+Mobile\+Receives@{Script\+::hand\+Over\+::\+Mobile\+Receives}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Script.\+hand\+Over.\+Mobile\+Receives.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 47 du fichier hand\+Over.\+py.
+
+
+\begin{DoxyCode}
+47     \textcolor{keyword}{def }\_\_init\_\_(self):
+48         Thread.\_\_init\_\_(self)
+49         with VERROU:
+50             self.phone= serial.Serial(interfaceFrame.VALUE\_BOX\_COM2.get(), baudrate, timeout=1)
+51         \textcolor{keywordflow}{if} self.phone.isOpen():
+52             \textcolor{comment}{# On envoi cette command pour dire au mobile de decrocher automatique les appels data}
+53             self.phone.write(b\textcolor{stringliteral}{"ATS0=1\(\backslash\)r"})
+\end{DoxyCode}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classScript_1_1handOver_1_1MobileReceives_a340893dfd7b7d84b3282bd0c24044e37}\label{classScript_1_1handOver_1_1MobileReceives_a340893dfd7b7d84b3282bd0c24044e37}} 
+\index{Script\+::hand\+Over\+::\+Mobile\+Receives@{Script\+::hand\+Over\+::\+Mobile\+Receives}!run@{run}}
+\index{run@{run}!Script\+::hand\+Over\+::\+Mobile\+Receives@{Script\+::hand\+Over\+::\+Mobile\+Receives}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def Script.\+hand\+Over.\+Mobile\+Receives.\+run (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 54 du fichier hand\+Over.\+py.
+
+
+
+Références Script.\+hand\+Over.\+Mobile\+Receives.\+phone.
+
+
+\begin{DoxyCode}
+54     \textcolor{keyword}{def }run(self):
+55         \textcolor{keyword}{global} RELEASE
+56         \textcolor{keyword}{global} RING\_STATUS
+57         RELEASE= \textcolor{keyword}{False}
+58         time.sleep(2)
+59         \textcolor{comment}{# On verifie le port COM est bien etablit pour eviter des bug}
+60         \textcolor{keywordflow}{if} self.phone.isOpen():
+61             with VERROU:
+62                 \textcolor{comment}{# On initialise le mobile à une vitesse que l'utilisateur à déja definie}
+63                 self.phone.write(b\textcolor{stringliteral}{"AT+CBST="}+interfaceFrame.VALUE\_ENTRY\_ATCBST.get()+b\textcolor{stringliteral}{'\(\backslash\)r'})
+64             time.sleep(3)
+65             with VERROU:
+66                 self.phone.readlines()
+67             \textcolor{comment}{# On verifie que l'utilisateur n'a pas fermer la barre de progression}
+68             \textcolor{keywordflow}{while} Option.RUNNING == \textcolor{keyword}{True}:
+69                 \textcolor{comment}{# On met cette variable à true pour que le mobile recoit un appel}
+70                 \textcolor{keywordflow}{if} RING\_STATUS == \textcolor{keyword}{True}:
+71                     time.sleep(3)
+72                     \textcolor{comment}{# On recuperer la reponse retouner par le telephone}
+73                     reponse= Option.split\_chaine(self.phone.readlines(), \textcolor{stringliteral}{""})
+74                     \textcolor{comment}{# On verifie qu'on a bien connect entre les mobiles}
+75                     \textcolor{keywordflow}{if} (reponse.find(\textcolor{stringliteral}{"CONNECT"}) != -1) \textcolor{keywordflow}{or} (reponse.find(\textcolor{stringliteral}{"CONNECT"}) != -1):
+76                         RING\_STATUS= \textcolor{keyword}{False}
+77                     \textcolor{keywordflow}{else}:
+78                         with VERROU:
+79                             \textcolor{comment}{# On envoie cette commande pour que le mobile decrocher l'appel voix}
+80                             self.phone.write(b\textcolor{stringliteral}{"ATA\(\backslash\)r"})
+81                             time.sleep(2)
+82                         RING\_STATUS= \textcolor{keyword}{False}
+83                 \textcolor{keywordflow}{if} RELEASE == \textcolor{keyword}{True}:
+84                     \textcolor{comment}{# on envoie la commande pour que le mobile arrête le groupe call}
+85                     self.phone.write(b\textcolor{stringliteral}{'at+vts="*","*","*"\(\backslash\)r'})
+86                     RELEASE= \textcolor{keyword}{False}
+87             with VERROU:
+88                 self.phone.close()
+89         \textcolor{keywordflow}{else}:
+90             print(\textcolor{stringliteral}{"Can not open '"}+interfaceFrame.VALUE\_BOX\_COM2.get())
+91 
+92 
+93 \textcolor{comment}{# Cette correspond au mobile qui émet l'appel}
+94 \textcolor{comment}{# Est une thread pour pralleliser les information }
+95 \textcolor{comment}{# elle s'ocuper e l'exécution des appels ptp, data, rec, vsb, data}
+96 \textcolor{comment}{# elle verifie le type d'appel choisi par l'utilisateur}
+97 
+\end{DoxyCode}
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classScript_1_1handOver_1_1MobileReceives_abb579ed112e4ce4e91762febd524d789}\label{classScript_1_1handOver_1_1MobileReceives_abb579ed112e4ce4e91762febd524d789}} 
+\index{Script\+::hand\+Over\+::\+Mobile\+Receives@{Script\+::hand\+Over\+::\+Mobile\+Receives}!phone@{phone}}
+\index{phone@{phone}!Script\+::hand\+Over\+::\+Mobile\+Receives@{Script\+::hand\+Over\+::\+Mobile\+Receives}}
+\subsubsection{\texorpdfstring{phone}{phone}}
+{\footnotesize\ttfamily Script.\+hand\+Over.\+Mobile\+Receives.\+phone}
+
+
+
+Définition à la ligne 50 du fichier hand\+Over.\+py.
+
+
+
+Référencé par Script.\+hand\+Over.\+Mobile\+Transmitter.\+data(), Script.\+hand\+Over.\+Mobile\+Transmitter.\+group\+\_\+call(), Script.\+hand\+Over.\+Mobile\+Transmitter.\+ptp(), et Script.\+hand\+Over.\+Mobile\+Receives.\+run().
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{handOver_8py}{hand\+Over.\+py}\end{DoxyCompactItemize}

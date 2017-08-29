@@ -1,0 +1,90 @@
+\hypertarget{namespaceScript_1_1handOver}{}\section{Référence de l\textquotesingle{}espace de nommage Script.\+hand\+Over}
+\label{namespaceScript_1_1handOver}\index{Script.\+hand\+Over@{Script.\+hand\+Over}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classScript_1_1handOver_1_1MobileReceives}{Mobile\+Receives}
+\item 
+class \hyperlink{classScript_1_1handOver_1_1MobileTransmitter}{Mobile\+Transmitter}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceScript_1_1handOver_a4d9a0e646528d168d925b4bcd6f078a6}{begin\+\_\+hand\+Over} (simple, tmu, ptp, data, vgcs, rec, vbs)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceScript_1_1handOver_a94f94a457b98f7aa4528c5118490f262}{V\+E\+R\+R\+OU} = R\+Lock()
+\item 
+bool \hyperlink{namespaceScript_1_1handOver_a1f8a11e1df500a2ab144549e8f3e4703}{C\+O\+N\+F\+I\+RM} = True
+\item 
+int \hyperlink{namespaceScript_1_1handOver_a10996755a745f6ffa98a8c5235d8d4b3}{baudrate} = 9600
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{namespaceScript_1_1handOver_a4d9a0e646528d168d925b4bcd6f078a6}\label{namespaceScript_1_1handOver_a4d9a0e646528d168d925b4bcd6f078a6}} 
+\index{Script\+::hand\+Over@{Script\+::hand\+Over}!begin\+\_\+hand\+Over@{begin\+\_\+hand\+Over}}
+\index{begin\+\_\+hand\+Over@{begin\+\_\+hand\+Over}!Script\+::hand\+Over@{Script\+::hand\+Over}}
+\subsubsection{\texorpdfstring{begin\+\_\+hand\+Over()}{begin\_handOver()}}
+{\footnotesize\ttfamily def Script.\+hand\+Over.\+begin\+\_\+hand\+Over (\begin{DoxyParamCaption}\item[{}]{simple,  }\item[{}]{tmu,  }\item[{}]{ptp,  }\item[{}]{data,  }\item[{}]{vgcs,  }\item[{}]{rec,  }\item[{}]{vbs }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 28 du fichier hand\+Over.\+py.
+
+
+\begin{DoxyCode}
+28 \textcolor{keyword}{def }\hyperlink{namespaceScript_1_1handOver_a4d9a0e646528d168d925b4bcd6f078a6}{begin\_handOver}(simple, tmu, ptp, data, vgcs, rec, vbs):
+29     \textcolor{keyword}{global} RING\_STATUS
+30     Option.RUNNING= \textcolor{keyword}{True}
+31     RING\_STATUS= \textcolor{keyword}{False}
+32     Option.progress\_Bar()
+33     thread\_receives=MobileReceives()
+34     thread\_transmitter= MobileTransmitter(simple, tmu, ptp, data, vgcs, rec, vbs)
+35     thread\_receives.start()
+36     thread\_transmitter.start()
+37 
+38 
+39     \textcolor{comment}{#thread\_limit\_waiting= Thread(target= Option.limit\_waiting)}
+40     \textcolor{comment}{#thread\_limit\_waiting.start()}
+41 
+42 \textcolor{comment}{# Cette classe permet de configure le mobile qui réçoit l'appel}
+43 \textcolor{comment}{# elle confire tout abord le mobile à une vitesse que l'utilisateur à definie, cela permet à mieux
+       d'etablir un appel}
+44 \textcolor{comment}{# elle se met a l'ecoute et est capable de crocher un appel ou raccrocher un appel de type groupe call}
+\end{DoxyCode}
+
+
+\subsection{Documentation des variables}
+\mbox{\Hypertarget{namespaceScript_1_1handOver_a10996755a745f6ffa98a8c5235d8d4b3}\label{namespaceScript_1_1handOver_a10996755a745f6ffa98a8c5235d8d4b3}} 
+\index{Script\+::hand\+Over@{Script\+::hand\+Over}!baudrate@{baudrate}}
+\index{baudrate@{baudrate}!Script\+::hand\+Over@{Script\+::hand\+Over}}
+\subsubsection{\texorpdfstring{baudrate}{baudrate}}
+{\footnotesize\ttfamily int Script.\+hand\+Over.\+baudrate = 9600}
+
+
+
+Définition à la ligne 24 du fichier hand\+Over.\+py.
+
+\mbox{\Hypertarget{namespaceScript_1_1handOver_a1f8a11e1df500a2ab144549e8f3e4703}\label{namespaceScript_1_1handOver_a1f8a11e1df500a2ab144549e8f3e4703}} 
+\index{Script\+::hand\+Over@{Script\+::hand\+Over}!C\+O\+N\+F\+I\+RM@{C\+O\+N\+F\+I\+RM}}
+\index{C\+O\+N\+F\+I\+RM@{C\+O\+N\+F\+I\+RM}!Script\+::hand\+Over@{Script\+::hand\+Over}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+I\+RM}{CONFIRM}}
+{\footnotesize\ttfamily bool Script.\+hand\+Over.\+C\+O\+N\+F\+I\+RM = True}
+
+
+
+Définition à la ligne 23 du fichier hand\+Over.\+py.
+
+\mbox{\Hypertarget{namespaceScript_1_1handOver_a94f94a457b98f7aa4528c5118490f262}\label{namespaceScript_1_1handOver_a94f94a457b98f7aa4528c5118490f262}} 
+\index{Script\+::hand\+Over@{Script\+::hand\+Over}!V\+E\+R\+R\+OU@{V\+E\+R\+R\+OU}}
+\index{V\+E\+R\+R\+OU@{V\+E\+R\+R\+OU}!Script\+::hand\+Over@{Script\+::hand\+Over}}
+\subsubsection{\texorpdfstring{V\+E\+R\+R\+OU}{VERROU}}
+{\footnotesize\ttfamily Script.\+hand\+Over.\+V\+E\+R\+R\+OU = R\+Lock()}
+
+
+
+Définition à la ligne 18 du fichier hand\+Over.\+py.
+

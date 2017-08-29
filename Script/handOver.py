@@ -23,7 +23,8 @@ global RELEASE
 CONFIRM= True
 baudrate=9600
 
-
+# Cette fonction se charger de faire appel a la classe MobileReceives et la classe du Mobile qui emet l'appel
+# Elle lance aussi la barre de progression 
 def begin_handOver(simple, tmu, ptp, data, vgcs, rec, vbs):
 	global RING_STATUS
 	Option.RUNNING= True
@@ -38,7 +39,9 @@ def begin_handOver(simple, tmu, ptp, data, vgcs, rec, vbs):
 	#thread_limit_waiting= Thread(target= Option.limit_waiting)
 	#thread_limit_waiting.start()
 
-
+# Cette classe permet de configure le mobile qui réçoit l'appel
+# elle confire tout abord le mobile à une vitesse que l'utilisateur à definie, cela permet à mieux d'etablir un appel
+# elle se met a l'ecoute et est capable de crocher un appel ou raccrocher un appel de type groupe call
 class MobileReceives(Thread):
 
 	def __init__(self):
@@ -46,31 +49,39 @@ class MobileReceives(Thread):
 		with VERROU:
 			self.phone= serial.Serial(interfaceFrame.VALUE_BOX_COM2.get(), baudrate, timeout=1)
 		if self.phone.isOpen():
+            # On envoi cette command pour dire au mobile de decrocher automatique les appels data
 			self.phone.write(b"ATS0=1\r")
 	def run(self):
 		global RELEASE
 		global RING_STATUS
 		RELEASE= False
 		time.sleep(2)
+        # On verifie le port COM est bien etablit pour eviter des bug
 		if self.phone.isOpen():
 			with VERROU:
+                # On initialise le mobile à une vitesse que l'utilisateur à déja definie
 				self.phone.write(b"AT+CBST="+interfaceFrame.VALUE_ENTRY_ATCBST.get()+b'\r')
 			time.sleep(3)
 			with VERROU:
 				self.phone.readlines()
-
+            # On verifie que l'utilisateur n'a pas fermer la barre de progression
 			while Option.RUNNING == True:
+                # On met cette variable à true pour que le mobile recoit un appel
 				if RING_STATUS == True:
 					time.sleep(3)
+                    # On recuperer la reponse retouner par le telephone
 					reponse= Option.split_chaine(self.phone.readlines(), "")
+                    # On verifie qu'on a bien connect entre les mobiles
 					if (reponse.find("CONNECT") != -1) or (reponse.find("CONNECT") != -1):
 						RING_STATUS= False
 					else:
 						with VERROU:
+                            # On envoie cette commande pour que le mobile decrocher l'appel voix
 							self.phone.write(b"ATA\r")
 							time.sleep(2)
 						RING_STATUS= False
 				if RELEASE == True:
+                    # on envoie la commande pour que le mobile arrête le groupe call
 					self.phone.write(b'at+vts="*","*","*"\r')
 					RELEASE= False
 			with VERROU:
@@ -79,7 +90,10 @@ class MobileReceives(Thread):
 			print("Can not open '"+interfaceFrame.VALUE_BOX_COM2.get())
 
 
-
+# Cette correspond au mobile qui émet l'appel
+# Est une thread pour pralleliser les information 
+# elle s'ocuper e l'exécution des appels ptp, data, rec, vsb, data
+# elle verifie le type d'appel choisi par l'utilisateur
 
 class MobileTransmitter(Thread):
 
@@ -97,6 +111,8 @@ class MobileTransmitter(Thread):
 		with VERROU:
 			self.phone= serial.Serial(interfaceFrame.VALUE_BOX_COM1.get(), baudrate, timeout=1)
 
+    # Cette fonction permet d'etabli un appel voix 
+    # elle choisit le mode d'appel avec le type de handOver (SIMPLE, ou avec reset-tmu)
 	def ptp(self, tmu_mode):
 		global RING_STATUS
 		nb_atd= 5
@@ -105,6 +121,7 @@ class MobileTransmitter(Thread):
 		if self.phone.isOpen():
 			self.phone.readlines()
 			with VERROU:
+                # On compose le numéro du mobile qui réçoit l'appel
 				self.phone.write(b"ATD"+interfaceFrame.VALUE_ENTRY_PHONE_NUMERO.get()+b";\r")
 				time.sleep(2)
 
@@ -114,11 +131,13 @@ class MobileTransmitter(Thread):
 					reponse= Option.split_chaine(self.phone.readlines(), "")
 
 					time.sleep(2)
+                # On verifie que le numéro à bien été saisi 
 				if reponse.find("OK") != -1:
 					RING_STATUS = True
 					break
 				else:
 					with VERROU:
+                        # On verifie siasi à nouveau le nouveau du mobile qui réçoit l'appel
 						self.phone.write(b"ATD"+interfaceFrame.VALUE_ENTRY_PHONE_NUMERO.get()+b";\r")
 						time.sleep(2)
 				nb_atd -=1
@@ -132,16 +151,18 @@ class MobileTransmitter(Thread):
 					nb=1
 					if tmu_mode == True:
 						while nb <= self.NBRTMU:
+                            # On recupère la liste de tmu présent dans l'OMC pour les deux BSC
 							list_tmu1= self.HO_OMU1.get_list_tmu()
 							list_tmu2= self.HO_OMU2.get_list_tmu()
 
 							min_size_tmu= min(len(list_tmu1), len(list_tmu2))
 							for i in range(min_size_tmu):
-								
+								# On reset un tmu de chaque BSC et recupère les information rétourner sur l'exécution cette command
 								state_omu1= self.HO_OMU1.reset_tmu(list_tmu1[i])
 								state_omu2= self.HO_OMU2.reset_tmu(list_tmu2[i])
 								time.sleep(120)
 								#with VERROU:
+                                # On éxécute le sénario avec
 								state_ho =self.HO_OMC.run_senario("ptp")
 								
 								text_save=str(nb)+" - CALL: PTP; MODE: RTMU; OMU1: "+state_omu1+"; OMU2: "+state_omu2+"; HandOver: "+state_ho+";\n"
@@ -149,9 +170,11 @@ class MobileTransmitter(Thread):
 								self.Filename.write(text_save)
 							nb+=1
 					else:
+                        # On exécute le senarion de la voix sans faire le reset tmu
 						state_ho= self.HO_OMC.run_senario("ptp")
 						text_save="0 - CaLL: PTP; MODE: SiMPLE; HANDOVER: "+state_ho+";\n"
 						print(text_save)
+                        # On sauvegarde dans le fichier
 						self.Filename.write(text_save)
 
 					connect_phone= False
